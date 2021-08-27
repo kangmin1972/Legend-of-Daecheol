@@ -6,17 +6,16 @@
 
 
 
-# Introduce
+# Legend of Daecheol
 
-This game was made to promote our school.
+This is the repository for Legend of Daecheol
 
-Although it is small, it is a beautiful school if you look inside and outside.
+I made this game because I wanted to DESTORY my school.
 
-but...
+# Credits
 
-It would be a lie to say that i made it for that reason.
-
-Actually, I made this game because I wanted to DESTORY the school.
+* kangmin1972 - code
+* Yullae, Jihyeok725 - Tester
 
 # Features
 
@@ -29,3 +28,4 @@ Actually, I made this game because I wanted to DESTORY the school.
 * Unity
 * Blender
 * Visual Studio 2019
+* Photoshop
