@@ -13,6 +13,7 @@ public class startscreen : MonoBehaviour
         StartCoroutine(startset());
     }
 
+    //찾아봐라ㅋㅋㅋ
     public void startbutton()
     {
         if (caninteract == true)
