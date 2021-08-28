@@ -5,15 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class startscreen : MonoBehaviour
 {
+    bool caninteract = false;
+    public Animation anim;
     // Start is called before the first frame update
-    public void startbutton()
+    private void Start()
     {
-        SceneManager.LoadScene("gametips");
+        StartCoroutine(startset());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void startbutton()
     {
-        
+        if (caninteract == true)
+        {
+            anim.Play("cameramove2");
+            StartCoroutine(startanimation());
+            caninteract = false;
+        }
+    }
+
+    public void exitgame()
+    {
+        if (caninteract == true)
+        {
+            Application.Quit();
+            caninteract = false;
+        } 
+    }
+
+    IEnumerator startset()
+    {
+        yield return new WaitForSeconds(2);
+        caninteract = true;
+    }
+
+    IEnumerator startanimation()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("gametips");
     }
 }
