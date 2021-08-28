@@ -12,16 +12,18 @@ public class showframe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(framerate());
     }
 
     // Update is called once per frame
-    void Update()
+    IEnumerator framerate()
     {
+        yield return new WaitForSeconds(1);
         float timelapse = Time.smoothDeltaTime;
         timer = timer <= 0 ? refresh : timer -= timelapse;
 
         if (timer <= 0) avgFramerate = (int)(1f / timelapse);
         m_Text.text = string.Format(display, avgFramerate.ToString());
+        StartCoroutine(framerate());
     }
 }
