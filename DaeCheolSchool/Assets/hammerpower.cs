@@ -15,6 +15,7 @@ public class hammerpower : MonoBehaviour
             if (usinghammer.ishammerused == true && test == 0f)
             {
                 Destroy(gameObject);
+                hammerhit.pitch = Random.Range(0.5f, 1.5f);
                 hammerhit.Play();
                 crushedstack.stack += 1;
                 test = 1f;
