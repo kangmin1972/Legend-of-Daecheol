@@ -7,7 +7,7 @@ using TMPro;
 public class startscreen : MonoBehaviour
 {
     bool caninteract = false;
-    public static float graphicset = 1;
+    public static int graphicset = 1;
     public Animation anim;
     public TextMeshProUGUI graphic;
     // Start is called before the first frame update
@@ -43,8 +43,9 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
-            Application.Quit();
             PlayerPrefs.Save();
+            Application.Quit();
+            
             caninteract = false;
         } 
     }
@@ -55,15 +56,17 @@ public class startscreen : MonoBehaviour
         {
             if (graphicset == 1)
             {
-                PlayerPrefs.SetFloat("GraphicSETed", graphicset);
-                PlayerPrefs.Save();
                 graphicset = 2;
+                PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                
+                PlayerPrefs.Save();
+                
             }
             else
             {
-                PlayerPrefs.SetFloat("GraphicSETed", graphicset);
-                PlayerPrefs.Save();
                 graphicset = 1;
+                PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                PlayerPrefs.Save();
             }
         }
     }
@@ -73,7 +76,7 @@ public class startscreen : MonoBehaviour
         if (!PlayerPrefs.HasKey("GraphicSETed"))
             return;
 
-        float graphiced = PlayerPrefs.GetFloat("GraphicSETed");
+        int graphiced = PlayerPrefs.GetInt("GraphicSETed");
 
         graphicset = graphiced;
     }
