@@ -2,17 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class startscreen : MonoBehaviour
 {
     bool caninteract = false;
+    public static float graphicset = 1;
     public Animation anim;
+    public TextMeshProUGUI graphic;
     // Start is called before the first frame update
     private void Start()
     {
         StartCoroutine(startset());
     }
 
+    private void Update()
+    {
+        if (graphicset == 1)
+        {
+            graphic.text = "그래픽 : 좋음";
+        } 
+        else
+        {
+            graphic.text = "그래픽 : 나쁨";
+        }
+    }
     //찾아봐라ㅋㅋㅋ
     public void startbutton()
     {
@@ -31,6 +45,27 @@ public class startscreen : MonoBehaviour
             Application.Quit();
             caninteract = false;
         } 
+    }
+
+    public void graphicmove()
+    {
+        if (caninteract == true)
+        {
+            if (graphicset == 1)
+            {
+                PlayerPrefs.SetFloat("GraphicSETed", graphicset);
+                PlayerPrefs.SetString("GraphicText", graphic.ToString());
+                PlayerPrefs.Save();
+                graphicset = 2;
+            }
+            else
+            {
+                PlayerPrefs.SetFloat("GraphicSETed", graphicset);
+                PlayerPrefs.SetString("GraphicText", graphic.ToString());
+                PlayerPrefs.Save();
+                graphicset = 1;
+            }
+        }
     }
 
     IEnumerator startset()
