@@ -10,10 +10,15 @@ public class startscreen : MonoBehaviour
     public static float graphicset = 1;
     public Animation anim;
     public TextMeshProUGUI graphic;
+    float graphiced = 1;
+    string texted = "그래픽 : 좋음";
     // Start is called before the first frame update
     private void Start()
     {
+        GameLoad();
         StartCoroutine(startset());
+        graphicset = graphiced;
+        graphic.text = texted;
     }
 
     private void Update()
@@ -66,6 +71,15 @@ public class startscreen : MonoBehaviour
                 graphicset = 1;
             }
         }
+    }
+
+    public void GameLoad()
+    {
+        if (!PlayerPrefs.HasKey("GraphicSETed"))
+            return;
+
+        graphiced = PlayerPrefs.GetFloat("GraphicSETed");
+        texted = PlayerPrefs.GetString("GraphicText");
     }
 
     IEnumerator startset()
