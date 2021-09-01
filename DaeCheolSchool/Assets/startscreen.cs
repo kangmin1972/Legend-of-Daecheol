@@ -43,7 +43,6 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
-            PlayerPrefs.Save();
             Application.Quit();
             
             caninteract = false;
