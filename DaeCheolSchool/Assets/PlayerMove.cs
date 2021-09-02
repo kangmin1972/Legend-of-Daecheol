@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     private float _jumpSpeed = 1.5f;
     public static bool canmove = true;
     public AudioSource footstep;
+    public AudioSource jump;
     bool isMoving;
 
     private CharacterController _controller;
@@ -54,10 +55,11 @@ public class PlayerMove : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     _directionY = _jumpSpeed;
+                    jump.Play();
                 }
             }
 
-            if (isMoving == true)
+            if (isMoving == true && _controller.isGrounded)
             {
                 if (!footstep.isPlaying)
                 {
