@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     private float _gravity = 6f;
     private float _jumpSpeed = 1.5f;
     public static bool canmove = true;
+    public AudioSource footstep;
+    bool isMoving;
 
     private CharacterController _controller;
 
@@ -23,6 +25,18 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float inputX = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
+        float inputY = Input.GetAxis("Vertical");
+
+        if (inputX != 0 || inputY != 0)
+        {
+            isMoving = true;
+        }
+        else if (inputX == 0 && inputY == 0)
+        {
+            isMoving = false;
+        }
+
         if (canmove == true)
         {
             if (_controller.isGrounded && _directionY < 0)
@@ -41,6 +55,18 @@ public class PlayerMove : MonoBehaviour
                 {
                     _directionY = _jumpSpeed;
                 }
+            }
+
+            if (isMoving == true)
+            {
+                if (!footstep.isPlaying)
+                {
+                    footstep.Play();
+                }
+            }
+            else
+            {
+                footstep.Stop();
             }
 
             _directionY -= _gravity * Time.deltaTime;
