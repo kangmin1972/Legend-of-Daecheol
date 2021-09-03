@@ -22,6 +22,7 @@ https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA
 
 * 강민 - 프로그래밍, 텍스처, 모델링, 사운드
 * Yullae, Jihyeok725 - 테스터
+* Remonde, Crusadope - 음악
 
 # 게임요소
 
