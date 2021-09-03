@@ -8,7 +8,7 @@
 
 # 레전드 오브 대철 (대철의 전설)
 
-https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA
+[![Kotlin](https://img.shields.io/badge/youtube-대철게임즈-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
 
 대철중학교를 홍보하기 위해 만들어진 프로젝트입니다.
 
