@@ -4,11 +4,12 @@
 <br>
 (학교 사진입니다, 인게임 사진이 아니에요.)
 
-
+[![](https://img.shields.io/badge/youtube-대철게임즈-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
+[![](https://img.shields.io/badge/Unity-2019.4.4f1-FFFFFF.svg?logo=unity)](https://unity.com/)
+[![](https://img.shields.io/badge/Visual_Studio-2019-B266FF.svg?logo=visualstudio)](https://unity.com/)
+![](https://img.shields.io/github/downloads/kangmin1972/Legend-of-Daecheol/total?color=blue&label=%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%EC%88%98)
 
 # 레전드 오브 대철 (대철의 전설)
-
-[![](https://img.shields.io/badge/youtube-대철게임즈-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
 
 대철중학교를 홍보하기 위해 만들어진 프로젝트입니다.
 
