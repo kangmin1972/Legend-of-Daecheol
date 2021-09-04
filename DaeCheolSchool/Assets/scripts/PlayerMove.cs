@@ -94,4 +94,13 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
+
+    public void PlayerJumping()
+    {
+        if (_controller.isGrounded)
+        {
+            _directionY = _jumpSpeed;
+            jump.Play();
+        }
+    }
 }
