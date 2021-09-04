@@ -11,6 +11,8 @@ public class Mouse : MonoBehaviour
     private Touch initTouch = new Touch();
     float xRotation = 0f;
 
+    float screenWidth = Screen.width;
+
     private float rotx = 0f;
     private float roty = 0f;
     private Vector3 origRot;
@@ -38,7 +40,7 @@ public class Mouse : MonoBehaviour
         }
         
     }
-    void Update()
+    void FixedUpdate()
     {
         if (mobilesupport == false)
         {
@@ -55,22 +57,25 @@ public class Mouse : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.phase == TouchPhase.Began)
+                if (touch.position.x > (screenWidth / 2))
                 {
-                    initTouch = touch;
-                }
-                else if (touch.phase == TouchPhase.Moved)
-                {
-                    float deltaX = initTouch.position.x - touch.position.x;
-                    float deltaY = initTouch.position.y - touch.position.y;
-                    rotx -= deltaY * Time.deltaTime * rotSpeed * dir;
-                    roty += deltaX * Time.deltaTime * rotSpeed * dir;
-                    rotx = Mathf.Clamp(rotx, -45f, 45f);
-                    cam.transform.eulerAngles = new Vector3(rotx, roty, 0f);
-                }
-                else if (touch.phase == TouchPhase.Ended)
-                {
-                    initTouch = new Touch();
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        initTouch = touch;
+                    }
+                    else if (touch.phase == TouchPhase.Moved)
+                    {
+                        float deltaX = initTouch.position.x - touch.position.x;
+                        float deltaY = initTouch.position.y - touch.position.y;
+                        rotx -= deltaY * Time.deltaTime * rotSpeed * dir;
+                        roty += deltaX * Time.deltaTime * rotSpeed * dir;
+                        rotx = Mathf.Clamp(rotx, -45f, 45f);
+                        cam.transform.eulerAngles = new Vector3(rotx, roty, 0f);
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        initTouch = new Touch();
+                    }
                 }
             }
         }
