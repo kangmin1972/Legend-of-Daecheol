@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mouse : MonoBehaviour
 {
+    public bool mobilesupport;
     public static float mouseSpeed = 5f;
     public Transform playerBody;
     float xRotation = 0f;
