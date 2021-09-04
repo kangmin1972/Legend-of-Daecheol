@@ -70,7 +70,7 @@ public class Mouse : MonoBehaviour
                         rotx -= deltaY * Time.deltaTime * rotSpeed * dir;
                         roty += deltaX * Time.deltaTime * rotSpeed * dir;
                         rotx = Mathf.Clamp(rotx, -45f, 45f);
-                        cam.transform.eulerAngles = new Vector3(rotx, roty, 0f);
+                        playerBody.transform.eulerAngles = new Vector3(rotx, roty, 0f);
                     }
                     else if (touch.phase == TouchPhase.Ended)
                     {
