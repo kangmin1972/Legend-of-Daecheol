@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
 
         //float inputX = _mangJoystick.inputHorizontal();
-       //float inputY = _mangJoystick.inputVertical();
+        //float inputY = _mangJoystick.inputVertical();
 
         if (inputX != 0 || inputY != 0)
         {
