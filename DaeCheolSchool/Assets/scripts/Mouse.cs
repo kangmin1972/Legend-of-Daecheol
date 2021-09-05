@@ -11,14 +11,16 @@ public class Mouse : MonoBehaviour
     private Touch initTouch = new Touch();
     float xRotation = 0f;
 
-    float screenWidth = Screen.width;
+    int leftFingerid, rightFingerid;
 
-    private float rotx = 0f;
-    private float roty = 0f;
-    private Vector3 origRot;
+    public Transform cameraTransform;
 
-    public float rotSpeed = 0.5f;
-    public float dir = -1;
+    public float camerasensitivity;
+
+    Vector2 lookInput;
+    float cameraPitch;
+
+    float halfScreenWidth;
 
     void Start()
     {
@@ -33,14 +35,15 @@ public class Mouse : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-                origRot = cam.transform.eulerAngles;
-                rotx = origRot.x;
-                roty = origRot.y;
+                leftFingerid = -1;
+                rightFingerid = -1;
+
+                halfScreenWidth = Screen.width / 2;
                 break;
         }
         
     }
-    void FixedUpdate()
+    void Update()
     {
         if (mobilesupport == false)
         {
@@ -55,29 +58,69 @@ public class Mouse : MonoBehaviour
         }
         else
         {
-            foreach (Touch touch in Input.touches)
+            GetTouchInput();
+
+            if (rightFingerid != -1)
             {
-                if (touch.position.x > (screenWidth / 2))
-                {
-                    if (touch.phase == TouchPhase.Began)
-                    {
-                        initTouch = touch;
-                    }
-                    else if (touch.phase == TouchPhase.Moved)
-                    {
-                        float deltaX = initTouch.position.x - touch.position.x;
-                        float deltaY = initTouch.position.y - touch.position.y;
-                        rotx -= deltaY * Time.deltaTime * rotSpeed * dir;
-                        roty += deltaX * Time.deltaTime * rotSpeed * dir;
-                        rotx = Mathf.Clamp(rotx, -45f, 45f);
-                        playerBody.transform.eulerAngles = new Vector3(rotx, roty, 0f);
-                    }
-                    else if (touch.phase == TouchPhase.Ended)
-                    {
-                        initTouch = new Touch();
-                    }
-                }
+                LookAround();
             }
         }
+    }
+
+    void GetTouchInput()
+    {
+        for (int i = 0; i < Input.touchCount; i++) { 
+            Touch t = Input.GetTouch(i);
+
+            switch (t.phase)
+            {
+                case TouchPhase.Began:
+
+                    if (t.position.x < halfScreenWidth && leftFingerid == -1)
+                    {
+                        leftFingerid = t.fingerId;
+                    }
+                    else if (t.position.x > halfScreenWidth && rightFingerid == -1) {
+                        rightFingerid = t.fingerId;
+                    }
+
+                    break;
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    if (t.fingerId == leftFingerid)
+                    {
+                        leftFingerid = -1;
+                    }
+                    else if (t.fingerId == rightFingerid)
+                    {
+                        rightFingerid = -1;
+                    }
+                    break;
+                case TouchPhase.Moved:
+                    if (t.fingerId == rightFingerid)
+                    {
+                        lookInput = t.deltaPosition *camerasensitivity * Time.deltaTime;
+                    }
+
+                    break;
+                case TouchPhase.Stationary:
+                    if(t.fingerId == rightFingerid)
+                    {
+                        lookInput = Vector2.zero;
+                    }
+                    break;
+            }
+        }
+        
+        
+
+    }
+
+    void LookAround()
+    {
+        cameraPitch = Mathf.Clamp(cameraPitch - lookInput.y, -90f, 90f);
+        cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0, 0);
+
+        transform.Rotate(transform.up, lookInput.x);
     }
 }

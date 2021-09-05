@@ -35,8 +35,8 @@ public class managejoystick : MonoBehaviour, IDragHandler, IPointerDownHandler, 
         }
 
         joystick.rectTransform.anchoredPosition = new Vector2(
-            posInput.x * (joystickbg.rectTransform.sizeDelta.x / 4),
-            posInput.y * (joystickbg.rectTransform.sizeDelta.y / 4));
+            posInput.x * (joystickbg.rectTransform.sizeDelta.x / 2),
+            posInput.y * (joystickbg.rectTransform.sizeDelta.y / 2));
     }
 
     public void OnPointerDown(PointerEventData eventData)
