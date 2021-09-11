@@ -19,13 +19,17 @@ public class startscreen : MonoBehaviour
 
     private void Update()
     {
-        if (graphicset == 1)
+        switch(graphicset)
         {
-            graphic.text = "그래픽 : 좋음";
-        } 
-        else
-        {
-            graphic.text = "그래픽 : 나쁨";
+            case 1:
+                graphic.text = "그래픽 : 좋음";
+                break;
+            case 2:
+                graphic.text = "그래픽 : 나쁨";
+                break;
+            case 3:
+                graphic.text = "그래픽 : 매우 나쁨";
+                break;
         }
     }
     //찾아봐라ㅋㅋㅋ
