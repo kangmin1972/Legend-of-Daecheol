@@ -10,6 +10,8 @@
 [![](https://img.shields.io/badge/Visual_Studio-2019-B266FF.svg?logo=visualstudio)](https://visualstudio.microsoft.com/)
 ![](https://img.shields.io/github/downloads/kangmin1972/Legend-of-Daecheol/total?color=blue&label=%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%EC%88%98)
 
+[English Version](https://github.com/kangmin1972/Legend-of-Daecheol/blob/main/README-EN.md)
+
 # 레전드 오브 대철 (대철의 전설)
 
 대철중학교를 홍보하기 위해 만들어진 프로젝트입니다.
