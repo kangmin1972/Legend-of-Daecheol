@@ -23,12 +23,15 @@ public class startscreen : MonoBehaviour
         {
             case 1:
                 graphic.text = "그래픽 : 좋음";
+                QualitySettings.SetQualityLevel(0);
                 break;
             case 2:
                 graphic.text = "그래픽 : 나쁨";
+                QualitySettings.SetQualityLevel(1);
                 break;
             case 3:
                 graphic.text = "그래픽 : 매우 나쁨";
+                QualitySettings.SetQualityLevel(2);
                 break;
         }
     }
@@ -57,19 +60,23 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
-            if (graphicset == 1)
+            switch (graphicset)
             {
-                graphicset = 2;
-                PlayerPrefs.SetInt("GraphicSETed", graphicset);
-                
-                PlayerPrefs.Save();
-                
-            }
-            else
-            {
-                graphicset = 1;
-                PlayerPrefs.SetInt("GraphicSETed", graphicset);
-                PlayerPrefs.Save();
+                case 1:
+                    graphicset = 2;
+                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                    PlayerPrefs.Save();
+                    break;
+                case 2:
+                    graphicset = 3;
+                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                    PlayerPrefs.Save();
+                    break;
+                case 3:
+                    graphicset = 1;
+                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                    PlayerPrefs.Save();
+                    break;
             }
         }
     }
