@@ -29,11 +29,11 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //float inputX = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
-        //float inputY = Input.GetAxis("Vertical");
+        float inputX = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
+        float inputY = Input.GetAxis("Vertical");
 
-        float inputX = _mangJoystick.inputHorizontal();
-        float inputY = _mangJoystick.inputVertical();
+        //float inputX = _mangJoystick.inputHorizontal();
+        //float inputY = _mangJoystick.inputVertical();
 
         if (inputX != 0 || inputY != 0)
         {
@@ -51,11 +51,11 @@ public class PlayerMove : MonoBehaviour
                 _directionY = 0f;
             }
 
-            //float x = Input.GetAxis("Horizontal");
-            //float z = Input.GetAxis("Vertical");
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-            float x = _mangJoystick.inputHorizontal();
-            float z = _mangJoystick.inputVertical();
+            //float x = _mangJoystick.inputHorizontal();
+            //float z = _mangJoystick.inputVertical();
 
             Vector3 direction = transform.right * x + transform.forward * z;
 
