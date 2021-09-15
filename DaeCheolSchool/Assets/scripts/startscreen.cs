@@ -10,6 +10,9 @@ public class startscreen : MonoBehaviour
     public static int graphicset = 1;
     public Animation anim;
     public TextMeshProUGUI graphic;
+
+    public Animation settings;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -58,8 +61,6 @@ public class startscreen : MonoBehaviour
 
     public void graphicmove()
     {
-        if (caninteract == true)
-        {
             switch (graphicset)
             {
                 case 1:
@@ -78,7 +79,6 @@ public class startscreen : MonoBehaviour
                     PlayerPrefs.Save();
                     break;
             }
-        }
     }
 
     public void GameLoad()
@@ -89,6 +89,22 @@ public class startscreen : MonoBehaviour
         int graphiced = PlayerPrefs.GetInt("GraphicSETed");
 
         graphicset = graphiced;
+    }
+
+    public void GameSettingMoveCamera()
+    {
+        if (caninteract == true)
+        {
+            anim.Play("cameramove3");
+            caninteract = false;
+        }
+        
+    }
+
+    public void GameSettingBackCamera()
+    {
+        anim.Play("cameramove4");
+        caninteract = true;
     }
 
     IEnumerator startset()
