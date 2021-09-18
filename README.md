@@ -19,7 +19,8 @@
 
 # 레전드 오브 대철 (대철의 전설)
 
-[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://www.youtube.com/watch?v=QIe6PHv8T8k)
+[![Video Label](https://user-images.githubusercontent.com/81474787/133871033-e401fd4e-6711-43b7-8bcd-dce5939ff22d.png)](https://www.youtube.com/watch?v=QIe6PHv8T8k)
+
 
 대철중학교를 홍보하기 위해 만들어진 프로젝트입니다.
 
