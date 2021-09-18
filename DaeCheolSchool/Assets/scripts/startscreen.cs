@@ -8,8 +8,12 @@ public class startscreen : MonoBehaviour
 {
     bool caninteract = false;
     public static int graphicset = 1;
+    public static int effectsset = 1;
+    public static int isfullscreen = 1;
     public Animation anim;
     public TextMeshProUGUI graphic;
+    public TextMeshProUGUI effect;
+    public TextMeshProUGUI fullscreen;
 
     public Animation settings;
 
@@ -35,6 +39,28 @@ public class startscreen : MonoBehaviour
             case 3:
                 graphic.text = "그래픽 : 매우 나쁨";
                 QualitySettings.SetQualityLevel(2);
+                break;
+        }
+
+        switch(effectsset)
+        {
+            case 1:
+                effect.text = "이펙트 : 켜짐";
+                break;
+            case 2:
+                effect.text = "이펙트 : 꺼짐";
+                break;
+        }
+
+        switch (isfullscreen)
+        {
+            case 1:
+                fullscreen.text = "전체화면 : 켜짐";
+                Screen.fullScreen = true;
+                break;
+            case 2:
+                fullscreen.text = "전체화면 : 꺼짐";
+                Screen.fullScreen = false;
                 break;
         }
     }
@@ -81,14 +107,53 @@ public class startscreen : MonoBehaviour
             }
     }
 
+    public void effectmove()
+    {
+        switch (effectsset)
+        {
+            case 1:
+                effectsset = 2;
+                PlayerPrefs.SetInt("EffectSETed", effectsset);
+                PlayerPrefs.Save();
+                break;
+            case 2:
+                effectsset = 1;
+                PlayerPrefs.SetInt("EffectSETed", effectsset);
+                PlayerPrefs.Save();
+                break;
+        }
+    }
+
+    public void fullscreenmove()
+    {
+        switch (isfullscreen)
+        {
+            case 1:
+                isfullscreen = 2;
+                PlayerPrefs.SetInt("ScreenSETed", isfullscreen);
+                PlayerPrefs.Save();
+                break;
+            case 2:
+                isfullscreen = 1;
+                PlayerPrefs.SetInt("ScreenSETed", isfullscreen);
+                PlayerPrefs.Save();
+                break;
+        }
+    }
+
     public void GameLoad()
     {
-        if (!PlayerPrefs.HasKey("GraphicSETed"))
+        if (!PlayerPrefs.HasKey("GraphicSETed") || !PlayerPrefs.HasKey("EffectSETed") || !PlayerPrefs.HasKey("ScreenSETed"))
             return;
 
         int graphiced = PlayerPrefs.GetInt("GraphicSETed");
+        int effected = PlayerPrefs.GetInt("EffectSETed");
+        int screened = PlayerPrefs.GetInt("ScreenSETed", isfullscreen);
+
 
         graphicset = graphiced;
+        effectsset = effected;
+        isfullscreen = screened;
     }
 
     public void GameSettingMoveCamera()

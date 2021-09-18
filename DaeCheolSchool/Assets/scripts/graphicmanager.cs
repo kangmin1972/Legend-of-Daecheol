@@ -14,7 +14,7 @@ public class graphicmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startscreen.graphicset == 1)
+        if (startscreen.effectsset == 1)
         {
             cubeppp.SetActive(true);
         } 
