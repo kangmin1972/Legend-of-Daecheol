@@ -19,6 +19,8 @@
 
 # 레전드 오브 대철 (대철의 전설)
 
+[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://www.youtube.com/watch?v=QIe6PHv8T8k)
+
 대철중학교를 홍보하기 위해 만들어진 프로젝트입니다.
 
 저희 학교는 작지만, 아름다운 학교입니다.
