@@ -4,64 +4,64 @@ using UnityEngine;
 
 public class headbob : MonoBehaviour
 {
-    public CharacterController playerController;
-    public Animation anim; //Empty GameObject's animation component
-    private bool isMoving;
+    [SerializeField] private bool _enable = true;
 
-    private bool left;
-    private bool right;
+    [SerializeField, Range(0, 0.1f)] private float _amplitude = 0.015f;
+    [SerializeField, Range(0, 30)] private float _frequency = 10.0f;
 
-    void CameraAnimations()
+    [SerializeField] private Transform _camera = null;
+    [SerializeField] private Transform _cameraHolder = null;
+
+    private float _toggleSpeed = 3.0f;
+    private Vector3 _startPos;
+    private CharacterController _controller;
+
+    private void Awake()
     {
-        if (playerController.isGrounded == true)
-        {
-            if (isMoving == true)
-            {
-                if (left == true)
-                {
-                    if (!anim.isPlaying)
-                    {//Waits until no animation is playing to play the next
-                        anim.Play("cameramove");
-                        left = false;
-                        right = true;
-                    }
-                }
-                if (right == true)
-                {
-                    if (!anim.isPlaying)
-                    {
-                        anim.Play("cameramove");
-                        right = false;
-                        left = true;
-                    }
-                }
-            }
-        }
+        _controller = GetComponent<CharacterController>();
+        _startPos = _camera.localPosition;
     }
-
-
-    void Start()
-    { //First step in a new scene/life/etc. will be "walkLeft"
-        left = true;
-        right = false;
-    }
-
 
     void Update()
     {
-        float inputX = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
-        float inputY = Input.GetAxis("Vertical");
+        CheckMotion();
+        ResetPosition();
+        _camera.LookAt(FocusTarget());
+    }
 
-        if (inputX != 0 || inputY != 0)
-        {
-            isMoving = true;
-        }
-        else if (inputX == 0 && inputY == 0)
-        {
-            isMoving = false;
-        }
+    private void CheckMotion()
+    {
+        float speed = new Vector3(_controller.velocity.x, 0, _controller.velocity.z).magnitude;
 
-        CameraAnimations();
+        if (speed < _toggleSpeed) return;
+        if (!_controller.isGrounded) return;
 
+        PlayMotion(FootStepMotion());
+    }
+
+    private Vector3 FootStepMotion()
+    {
+        Vector3 pos = Vector3.zero;
+        pos.y += Mathf.Sin(Time.time * _frequency) * _amplitude;
+        pos.x += Mathf.Cos(Time.time * _frequency / 2) * _amplitude * 2;
+        return pos;
+    }
+
+    private void ResetPosition()
+    {
+        if (_camera.localPosition == _startPos) return;
+        _camera.localPosition = Vector3.Lerp(_camera.localPosition, _startPos, 1 * Time.deltaTime);
+    }
+
+    private void PlayMotion(Vector3 motion)
+    {
+        _camera.localPosition += motion;
+    }
+
+    private Vector3 FocusTarget()
+    {
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + _cameraHolder.localPosition.y, transform.position.z);
+        pos += _cameraHolder.forward * 15.0f;
+        return pos;
     }
 }
