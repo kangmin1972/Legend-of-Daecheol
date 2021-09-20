@@ -8,6 +8,7 @@
 ![](https://img.shields.io/github/downloads/kangmin1972/Legend-of-Daecheol/total?color=blue&label=%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20%EC%88%98)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kangmin1972/Legend-of-Daecheol)
 ![GitHub Repo stars](https://img.shields.io/github/stars/kangmin1972/Legend-of-Daecheol?style=social)
+[![Build Status](https://app.travis-ci.com/kangmin1972/Legend-of-Daecheol.svg?branch=main)](https://app.travis-ci.com/kangmin1972/Legend-of-Daecheol)
 ![GitHub](https://img.shields.io/github/license/kangmin1972/Legend-of-Daecheol)
 
 # 레전드 오브 대철 (대철의 전설)
