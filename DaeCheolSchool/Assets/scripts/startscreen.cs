@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class startscreen : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class startscreen : MonoBehaviour
     public TextMeshProUGUI effect;
     public TextMeshProUGUI fullscreen;
 
+    public Toggle FullSCREAM;
+
+    FullScreenMode screenMode;
+
+    int resoltuionnum;
+
     List<Resolution> resolutions = new List<Resolution>();
 
     public Animation settings;
@@ -23,7 +30,6 @@ public class startscreen : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        InitUI();
         GameLoad();
         StartCoroutine(startset());
     }
@@ -145,19 +151,6 @@ public class startscreen : MonoBehaviour
         }
     }
 
-    void InitUI()
-    {
-        resolutions.AddRange(Screen.resolutions);
-        resolutiondrop.options.Clear();
-
-        foreach(Resolution item in resolutions)
-        {
-            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
-            option.text = item.width + " x " + item.height + " " + item.refreshRate + "hz";
-            resolutiondrop.options.Add(option);
-        }
-        resolutiondrop.RefreshShownValue();
-    }
 
     public void GameLoad()
     {
