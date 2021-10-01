@@ -11,15 +11,19 @@ public class startscreen : MonoBehaviour
     public static int effectsset = 1;
     public static int isfullscreen = 1;
     public Animation anim;
+    public TMP_Dropdown resolutiondrop;
     public TextMeshProUGUI graphic;
     public TextMeshProUGUI effect;
     public TextMeshProUGUI fullscreen;
+
+    List<Resolution> resolutions = new List<Resolution>();
 
     public Animation settings;
 
     // Start is called before the first frame update
     private void Start()
     {
+        InitUI();
         GameLoad();
         StartCoroutine(startset());
     }
@@ -139,6 +143,20 @@ public class startscreen : MonoBehaviour
                 PlayerPrefs.Save();
                 break;
         }
+    }
+
+    void InitUI()
+    {
+        resolutions.AddRange(Screen.resolutions);
+        resolutiondrop.options.Clear();
+
+        foreach(Resolution item in resolutions)
+        {
+            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
+            option.text = item.width + " x " + item.height + " " + item.refreshRate + "hz";
+            resolutiondrop.options.Add(option);
+        }
+        resolutiondrop.RefreshShownValue();
     }
 
     public void GameLoad()
