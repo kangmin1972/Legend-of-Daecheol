@@ -1,5 +1,5 @@
 # [🌎English Version](https://github.com/kangmin1972/Legend-of-Daecheol/blob/main/README-EN.md)
-![Header](https://user-images.githubusercontent.com/81474787/132936734-c2282863-1bcf-4cce-ae56-146904c4f762.png)
+![image](https://user-images.githubusercontent.com/81474787/137589002-5d33281c-c06a-4e16-938c-9058448e6ea2.png)
 
 [![](https://img.shields.io/badge/youtube-대철게임즈-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
 [![](https://img.shields.io/badge/youtube-2020_대철중학교_홍보영상-red.svg?logo=youtube)](https://www.youtube.com/watch?v=fJfXoC-QEIM)
