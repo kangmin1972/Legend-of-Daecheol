@@ -9,6 +9,7 @@ public class usinghammer : MonoBehaviour
     public static bool ishammerused;
     public bool twsting;
     public float randomaized;
+    public GameObject hammer;
 
     public bool mobilesupport;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class usinghammer : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && !hammerd.isPlaying)
             {
+                hammer.SetActive(true);
                 randomaized = Random.Range(0, 3);
 
                 if (randomaized == -1)
