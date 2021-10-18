@@ -8,6 +8,7 @@ TagManager:
   - weapon
   - testing
   - post2
+  - crushed
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - post
   - weapon
   - post2
-  - 
-  - 
+  - crushed
+  - Player
   - 
   - 
   - 
