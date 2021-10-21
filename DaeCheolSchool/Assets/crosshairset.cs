@@ -11,9 +11,9 @@ public class crosshairset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startscreen.iscrosshairon == 1)
+        if (startscreen.iscrosshairon == 2)
         {
-            crosshair.SetActive(true);
+            crosshair.SetActive(false);
         }
     }
 }
