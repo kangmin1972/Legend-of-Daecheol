@@ -11,10 +11,10 @@
 
 # Legend of Daecheol
 
-[![Video Label](https://user-images.githubusercontent.com/81474787/133871033-e401fd4e-6711-43b7-8bcd-dce5939ff22d.png)](https://www.youtube.com/watch?v=QIe6PHv8T8k)
+[![Video Label](https://user-images.githubusercontent.com/81474787/133871033-e401fd4e-6711-43b7-8bcd-dce5939ff22d.png)](https://www.youtube.com/watch?v=aGNMZE81wkg)
 
 * Official Website https://legendofdaecheol.me/
-* Trailer https://www.youtube.com/watch?v=QIe6PHv8T8k
+* Trailer https://www.youtube.com/watch?v=aGNMZE81wkg
 * Bug report & Idea ( inamanag@gmail.com / inamanag@naver.com )
 
 Legend of Daecheol is a stress relief game created to promote Daecheol Middle School, a middle school in South Korea.
