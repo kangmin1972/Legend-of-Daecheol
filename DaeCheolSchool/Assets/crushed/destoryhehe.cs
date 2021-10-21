@@ -7,7 +7,11 @@ public class destoryhehe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(destoryhaha());
+        if (startscreen.isleavingpieces == 2)
+        {
+            StartCoroutine(destoryhaha());
+        }
+        
     }
 
     IEnumerator destoryhaha()
