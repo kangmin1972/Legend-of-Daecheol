@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    private float _moveSpeed = 5f;
+    private float _moveSpeed = 10f;
     private float _gravity = 6f;
     private float _jumpSpeed = 1.5f;
     public static bool canmove = true;
