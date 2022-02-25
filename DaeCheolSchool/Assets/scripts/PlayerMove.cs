@@ -68,18 +68,6 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            if (isMoving == true && _controller.isGrounded)
-            {
-                if (!footstep.isPlaying)
-                {
-                    footstep.Play();
-                }
-            }
-            else
-            {
-                footstep.Stop();
-            }
-
             _directionY -= _gravity * Time.deltaTime;
 
             direction.y = _directionY;
