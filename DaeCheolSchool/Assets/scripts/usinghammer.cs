@@ -9,6 +9,7 @@ public class usinghammer : MonoBehaviour
     public static bool ishammerused;
     public bool twsting;
     public float randomaized;
+    public Animation recoil;
     public GameObject hammer;
 
     public bool mobilesupport;
@@ -43,7 +44,7 @@ public class usinghammer : MonoBehaviour
                     hammerd.Play("hammer3");
                     swinging.Play();
                 }
-
+                recoil.Play("recoil");
             }
         }
         if (!hammerd.isPlaying)

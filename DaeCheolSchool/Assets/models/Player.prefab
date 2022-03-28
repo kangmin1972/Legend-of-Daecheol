@@ -84,6 +84,7 @@ MonoBehaviour:
   swinging: {fileID: 0}
   twsting: 0
   randomaized: 0
+  recoil: {fileID: 0}
   hammer: {fileID: 0}
   mobilesupport: 0
 --- !u!95 &3550623406780013162
@@ -153,7 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3948777607622914710}
-  m_Father: {fileID: 5999407582305165877}
+  m_Father: {fileID: 9019400039118693190}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 3.3398402, y: 0, z: 0}
 --- !u!20 &3550623407110015001
@@ -348,7 +349,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3550623407110015006}
+  - {fileID: 9019400039118693190}
   m_Father: {fileID: 3550623406780013463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +368,54 @@ MonoBehaviour:
   _tiltAmount: 1
   _leftBtn: 97
   _rightBtn: 100
+--- !u!1 &6726932132374995823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9019400039118693190}
+  - component: {fileID: 8751297746870703529}
+  m_Layer: 0
+  m_Name: Recoil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9019400039118693190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726932132374995823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3550623407110015006}
+  m_Father: {fileID: 5999407582305165877}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &8751297746870703529
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726932132374995823}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b76ffdf0a2ef45643bb2ec8ce628c6c7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b76ffdf0a2ef45643bb2ec8ce628c6c7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &3550623408081081725
 PrefabInstance:
   m_ObjectHideFlags: 0
