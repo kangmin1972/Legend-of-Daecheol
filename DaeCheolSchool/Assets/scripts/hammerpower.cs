@@ -8,7 +8,7 @@ public class hammerpower : MonoBehaviour
     public AudioSource hammerhit;
     public float test = 0f;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "weapon" && test == 0f)
         {

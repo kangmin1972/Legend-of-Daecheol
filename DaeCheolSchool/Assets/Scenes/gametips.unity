@@ -488,6 +488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tips: 0
+  gogogogo: 0
+  scenenumber: 3
   text: {fileID: 924508323}
 --- !u!1 &1183811048
 GameObject:
