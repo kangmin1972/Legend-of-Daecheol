@@ -54,14 +54,14 @@ public class usinghammer : MonoBehaviour
         else
         {
             ishammerused = true;
-            StartCoroutine(asdf());
+            //StartCoroutine(asdf());
         }
 
-        IEnumerator asdf()
-        {
-            yield return new WaitForSeconds(0.1f);
-            ishammerused = false;
-        }
+        //IEnumerator asdf()
+        //{
+            //yield return new WaitForSeconds(0.1f);
+            //ishammerused = false;
+        //}
     }
 
     public void HammerSwing()

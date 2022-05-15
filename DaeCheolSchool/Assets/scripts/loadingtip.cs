@@ -15,7 +15,7 @@ public class loadingtip : MonoBehaviour
     {
         if (gogogogo == false)
         {
-            tips = Random.Range(1, 5);
+            tips = Random.Range(1, 6);
             if (tips == 1)
             {
                 text.text = "CCTV를 조심하고 항상 조용히 행동하세요.";
