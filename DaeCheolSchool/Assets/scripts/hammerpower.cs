@@ -6,6 +6,7 @@ public class hammerpower : MonoBehaviour
 {
     public GameObject crushed;
     public AudioSource hammerhit;
+    public ScreenShake ss;
     public float test = 0f;
 
     private void OnTriggerEnter(Collider other)
@@ -14,6 +15,7 @@ public class hammerpower : MonoBehaviour
         {
             if (usinghammer.ishammerused == true && test == 0f)
             {
+                PlayerMove.ishammerpowered = true;
                 Destroy(gameObject);
                 hammerhit.pitch = Random.Range(0.5f, 1.5f);
                 hammerhit.Play();

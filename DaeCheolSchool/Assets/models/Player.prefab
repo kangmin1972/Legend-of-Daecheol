@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5187dc2077c2fbf40ba6730ca23e9078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ss: {fileID: 0}
   footstep: {fileID: 0}
   jump: {fileID: 0}
 --- !u!143 &3550623406780013457
@@ -458,17 +459,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.602
+      value: 0.602005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.102999985
+      value: -0.102999926
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7279997
+      value: 0.7279968
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
         type: 3}

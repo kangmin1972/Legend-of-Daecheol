@@ -8,10 +8,13 @@ public class PlayerMove : MonoBehaviour
     private float _moveSpeed = 10f;
     private float _gravity = 6f;
     private float _jumpSpeed = 1.5f;
+    public ScreenShake ss;
     public static bool canmove = true;
     public AudioSource footstep;
+    public AudioSource hammerhit;
     public AudioSource jump;
     bool isMoving;
+    public static bool ishammerpowered;
 
     private managejoystick _mangJoystick;
 
@@ -34,6 +37,13 @@ public class PlayerMove : MonoBehaviour
 
         //float inputX = _mangJoystick.inputHorizontal();
         //float inputY = _mangJoystick.inputVertical();
+        
+        if(ishammerpowered == true)
+        {
+            StartCoroutine(ss.Shake(.15f, .2f));
+            hammerhit.Play();
+            ishammerpowered = false;
+        }
 
         if (inputX != 0 || inputY != 0)
         {
