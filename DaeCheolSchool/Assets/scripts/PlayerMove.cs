@@ -7,12 +7,15 @@ public class PlayerMove : MonoBehaviour
 {
     private float _moveSpeed = 10f;
     private float _gravity = 6f;
-    private float _jumpSpeed = 1.5f;
+    private float _jumpSpeed = 1.3f;
     public ScreenShake ss;
     public static bool canmove = true;
     public AudioSource footstep;
     public AudioSource hammerhit;
     public AudioSource jump;
+    public GameObject hammerspawn;
+    public GameObject fakehammer;
+    public AudioSource thing;
     bool isMoving;
     public static bool ishammerpowered;
 
@@ -71,7 +74,7 @@ public class PlayerMove : MonoBehaviour
 
             if (_controller.isGrounded)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButton("Jump"))
                 {
                     _directionY = _jumpSpeed;
                     jump.Play();
@@ -99,6 +102,16 @@ public class PlayerMove : MonoBehaviour
         {
             _directionY = _jumpSpeed;
             jump.Play();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "trigger_gethammer")
+        {
+
+            hammerspawn.SetActive(true);
+            fakehammer.SetActive(false);
         }
     }
 }

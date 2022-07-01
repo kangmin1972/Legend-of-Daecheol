@@ -9,6 +9,7 @@ TagManager:
   - testing
   - post2
   - crushed
+  - trigger_gethammer
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - post2
   - crushed
   - Player
-  - 
+  - canjump
   - 
   - 
   - 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 9
+    value: 20
   tint:
     overrideState: 1
     value: 0
@@ -150,13 +150,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: -0.1818182}
+    value: {x: 1, y: 1, z: 1, w: 0.010695191}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: -0.11764706}
+    value: {x: 1, y: 1, z: 1, w: -0.22459893}
   gain:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: -1}
+    value: {x: 1, y: 1, z: 1, w: 1}
   masterCurve:
     overrideState: 1
     value:
@@ -1424,7 +1424,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10.36
+    value: 9.16
   threshold:
     overrideState: 1
     value: 1
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1

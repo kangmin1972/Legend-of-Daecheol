@@ -15,7 +15,9 @@ public class hammerpower : MonoBehaviour
         {
             if (usinghammer.ishammerused == true && test == 0f)
             {
+                musictrans.iscombat = true;
                 PlayerMove.ishammerpowered = true;
+                musictrans.test = true;
                 Destroy(gameObject);
                 hammerhit.pitch = Random.Range(0.5f, 1.5f);
                 hammerhit.Play();
