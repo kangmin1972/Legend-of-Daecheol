@@ -13,6 +13,8 @@ public class startscreen : MonoBehaviour
     public static int isfullscreen = 1;
     public static int iscrosshairon = 1;
     public static int isleavingpieces = 2;
+    public GameObject normalcanvas;
+    public GameObject gamemodecanvas;
     public Animation anim;
     public TMP_Dropdown resolutiondrop;
     public TextMeshProUGUI graphic;
@@ -20,6 +22,7 @@ public class startscreen : MonoBehaviour
     public TextMeshProUGUI fullscreen;
     public TextMeshProUGUI crosshair;
     public TextMeshProUGUI leavingpieces;
+    public AudioSource buttonclick;
 
     public Toggle FullSCREAM;
 
@@ -103,9 +106,30 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
+            buttonclick.Play();
+            normalcanvas.SetActive(false);
+            gamemodecanvas.SetActive(true);
+        }
+    }
+
+    public void storymode()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
             anim.Play("cameramove2");
             StartCoroutine(startanimation());
             caninteract = false;
+        }
+    }
+
+    public void goback()
+    {
+        if(caninteract == true)
+        {
+            buttonclick.Play();
+            normalcanvas.SetActive(true);
+            gamemodecanvas.SetActive(false);
         }
     }
 
@@ -113,6 +137,7 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
+            buttonclick.Play();
             Application.Quit();
             
             caninteract = false;
