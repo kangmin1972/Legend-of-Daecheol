@@ -18,15 +18,6 @@ public class musictrans : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            iscombat = true;
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            iscombat = false;
-            test = true;
-        }
         if(iscombat == true && test == true)
         {
             StopAllCoroutines();

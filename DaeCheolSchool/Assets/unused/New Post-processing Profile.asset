@@ -44,8 +44,8 @@ MonoBehaviour:
   - {fileID: 4080951730676865267}
   - {fileID: -139416180565125076}
   - {fileID: 5734040001865239959}
-  - {fileID: 464867743456870426}
   - {fileID: 423347843349945459}
+  - {fileID: 3885249910717520839}
 --- !u!114 &423347843349945459
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -71,7 +71,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 0
+    value: 1
   toneCurveToeStrength:
     overrideState: 1
     value: 0
@@ -150,13 +150,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0.010695191}
+    value: {x: 1, y: 1, z: 1, w: -0.09174313}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: -0.22459893}
+    value: {x: 1, y: 1, z: 1, w: 0.13761468}
   gain:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 1}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: 0.4816513}
   masterCurve:
     overrideState: 1
     value:
@@ -1357,7 +1357,7 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &464867743456870426
+--- !u!114 &3885249910717520839
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1366,46 +1366,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
-  m_Name: AmbientOcclusion
+  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
+  m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
-  mode:
+  preset:
     overrideState: 1
-    value: 0
-  intensity:
+    value: 7
+  maximumIterationCount:
     overrideState: 1
-    value: 0.9
-  color:
-    overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
-  ambientOnly:
-    overrideState: 0
-    value: 1
-  noiseFilterTolerance:
-    overrideState: 1
-    value: 0
-  blurTolerance:
-    overrideState: 1
-    value: -4.6
-  upsampleTolerance:
-    overrideState: 1
-    value: -12
-  thicknessModifier:
-    overrideState: 1
-    value: 1
-  directLightingStrength:
-    overrideState: 1
-    value: 0
-  radius:
-    overrideState: 1
-    value: 0.38
-  quality:
+    value: 256
+  resolution:
     overrideState: 1
     value: 2
+  thickness:
+    overrideState: 1
+    value: 5.2
+  maximumMarchDistance:
+    overrideState: 1
+    value: 100
+  distanceFade:
+    overrideState: 1
+    value: 0
+  vignette:
+    overrideState: 1
+    value: 1
 --- !u!114 &4080951730676865267
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1465,7 +1453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
