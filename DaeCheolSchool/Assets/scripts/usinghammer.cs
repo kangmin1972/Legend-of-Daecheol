@@ -27,6 +27,8 @@ public class usinghammer : MonoBehaviour
             if (Input.GetMouseButton(0) && !hammerd.isPlaying)
             {
                 hammer.SetActive(true);
+                PlayerMove.canmove = false;
+                StartCoroutine(asdf());
                 randomaized = Random.Range(0, 3);
 
                 if (randomaized == -1)
@@ -54,14 +56,13 @@ public class usinghammer : MonoBehaviour
         else
         {
             ishammerused = true;
-            //StartCoroutine(asdf());
         }
 
-        //IEnumerator asdf()
-        //{
-            //yield return new WaitForSeconds(0.1f);
-            //ishammerused = false;
-        //}
+        IEnumerator asdf()
+        {
+            yield return new WaitForSeconds(0.03f);
+            PlayerMove.canmove = true;
+        }
     }
 
     public void HammerSwing()

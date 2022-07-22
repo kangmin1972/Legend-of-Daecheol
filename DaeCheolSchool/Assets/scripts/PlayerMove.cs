@@ -205,6 +205,7 @@ public class PlayerMove : MonoBehaviour
 
         if (hookshotsize > 0)
         {
+            StartCoroutine(ss.Shake(.05f, .15f));
             hookshotsize -= hookshotSpeed * hookshotSpeedMultiplier * Time.deltaTime;
             hookshotTransform.localScale = new Vector3(0.1f, 0.1f, hookshotsize);
         }

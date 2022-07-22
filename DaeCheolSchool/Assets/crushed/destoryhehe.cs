@@ -9,14 +9,14 @@ public class destoryhehe : MonoBehaviour
     {
         if (startscreen.isleavingpieces == 2)
         {
-            StartCoroutine(destoryhaha());
+            //StartCoroutine(destoryhaha());
         }
         
     }
 
     IEnumerator destoryhaha()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(15);
         Destroy(gameObject);
     }
 }
