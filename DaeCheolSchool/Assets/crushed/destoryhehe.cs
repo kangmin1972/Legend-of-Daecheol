@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class destoryhehe : MonoBehaviour
 {
+    public GameObject effect;
+    public Rigidbody[] rb;
     // Start is called before the first frame update
     void Start()
     {
         if (startscreen.isleavingpieces == 2)
         {
-            //StartCoroutine(destoryhaha());
+            StartCoroutine(destoryhaha());
         }
         
     }
 
     IEnumerator destoryhaha()
     {
-        yield return new WaitForSeconds(15);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(6);
+        Destroy(effect);
     }
 }

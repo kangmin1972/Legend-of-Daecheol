@@ -7960,6 +7960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240215315325026141}
   - component: {fileID: 8283029080894700547}
+  - component: {fileID: 1432199489387990378}
   m_Layer: 0
   m_Name: WoodTable (Crushed)
   m_TagString: Untagged
@@ -8109,6 +8110,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1432199489387990378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012389534769227239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89983a87397584d40b3caa8012e17245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2944933370215331627}
+  rb:
+  - {fileID: 6419964846183350200}
+  - {fileID: 2263174341426691315}
+  - {fileID: 461340872848605535}
+  - {fileID: 215701524312069228}
+  - {fileID: 27126187912511029}
+  - {fileID: 4195016700565373096}
+  - {fileID: 729000470773869168}
+  - {fileID: 5956588532018349512}
+  - {fileID: 114448394462458461}
+  - {fileID: 6613847679714321688}
+  - {fileID: 9087025322636837478}
+  - {fileID: 6322759099590839596}
+  - {fileID: 8181156684930829901}
+  - {fileID: 7574128010849539881}
+  - {fileID: 6431766781107272588}
+  - {fileID: 8553513732024828427}
+  - {fileID: 8214804168248594186}
+  - {fileID: 3225606947295011748}
+  - {fileID: 4809777986288957338}
+  - {fileID: 5804712280788689574}
+  - {fileID: 3737516849219580355}
+  - {fileID: 626151325044088370}
+  - {fileID: 5288814277068382038}
+  - {fileID: 5141463132314744493}
+  - {fileID: 1136699815292139188}
+  - {fileID: 3772580990598146068}
+  - {fileID: 8896477646539940420}
+  - {fileID: 5890035312242386691}
+  - {fileID: 3068205058529691242}
+  - {fileID: 2190907959099971870}
 --- !u!1 &8331320892870934266
 GameObject:
   m_ObjectHideFlags: 0
