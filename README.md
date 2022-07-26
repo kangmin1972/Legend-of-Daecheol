@@ -1,5 +1,5 @@
 # [🌎English Version](https://github.com/kangmin1972/Legend-of-Daecheol/blob/main/README-EN.md)
-![image](https://user-images.githubusercontent.com/81474787/137591932-c56a89bd-382a-4ddd-91e3-933e9f647165.png)
+![image](https://user-images.githubusercontent.com/81474787/181029202-9c0d0d90-7f35-47d0-bcf8-db89ca6e0828.png)
 
 [![](https://img.shields.io/badge/youtube-대철게임즈-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
 [![](https://img.shields.io/badge/youtube-2020_대철중학교_홍보영상-red.svg?logo=youtube)](https://www.youtube.com/watch?v=fJfXoC-QEIM)
@@ -12,8 +12,7 @@
 ![GitHub](https://img.shields.io/github/license/kangmin1972/Legend-of-Daecheol)
 
 # 레전드 오브 대철 (대철의 전설)
-
-[![Video Label](https://user-images.githubusercontent.com/81474787/133871033-e401fd4e-6711-43b7-8bcd-dce5939ff22d.png)](https://www.youtube.com/watch?v=aGNMZE81wkg)
+[![Video Label](https://user-images.githubusercontent.com/81474787/181028760-372cecd6-8e53-457a-81ba-c66deae4a462.png)](https://www.youtube.com/watch?v=aGNMZE81wkg)
 
 * 공식 사이트 https://legendofdaecheol.me/
 * 트레일러 영상 https://www.youtube.com/watch?v=aGNMZE81wkg
