@@ -28,5 +28,19 @@ public class hammerpower : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (other.tag == "tennisbullet" && test == 0f)
+        {
+                musictrans.iscombat = true;
+                musictrans.test = true;
+                Destroy(gameObject);
+                hammerhit.pitch = Random.Range(0.5f, 1.5f);
+                hammerhit.Play();
+                crushedstack.stack += 1;
+                test = 1f;
+                Vector3 oldPos = transform.position;
+                Instantiate(crushed, oldPos, Quaternion.identity);
+                Destroy(gameObject);
+        }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - post2
   - crushed
   - trigger_gethammer
+  - tennisbullet
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - crushed
   - Player
   - canjump
-  - 
-  - 
+  - bullet(tennies)
+  - bulletimpact
   - 
   - 
   - 
