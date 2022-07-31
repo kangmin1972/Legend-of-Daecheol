@@ -37,6 +37,7 @@ public class gunshoot : MonoBehaviour
     public Animator gunshake;
 
     public GameObject bulletparticle;
+    public GameObject tenniuzi;
 
     public bool canshoot = true;
 
@@ -50,36 +51,44 @@ public class gunshoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownSpeed += Time.deltaTime * 90f;
-
-        if (Input.GetMouseButton(0))
+        if (weaponsystem.canusetenniuzis == true)
         {
-            accuracy += Time.deltaTime * 4f;
-            if (bullets > 0)
+            tenniuzi.SetActive(true);
+            cooldownSpeed += Time.deltaTime * 90f;
+
+            if (Input.GetMouseButton(0))
             {
-                if (canshoot == true)
+                accuracy += Time.deltaTime * 4f;
+                if (bullets > 0)
                 {
-                    if (cooldownSpeed >= fireRate)
+                    if (canshoot == true)
                     {
-                        Shoot();
-                        cooldownSpeed = 0;
-                        recoilCooldown = 1;
+                        if (cooldownSpeed >= fireRate)
+                        {
+                            Shoot();
+                            cooldownSpeed = 0;
+                            recoilCooldown = 1;
+                        }
                     }
+                }
+                else
+                {
+                    canshoot = false;
                 }
             }
             else
             {
-                canshoot = false;
+                gunshake.enabled = false;
+                recoilCooldown -= Time.deltaTime;
+                if (recoilCooldown <= 1)
+                {
+                    accuracy = 0.0f;
+                }
             }
         }
         else
         {
-            gunshake.enabled = false;
-            recoilCooldown -= Time.deltaTime;
-            if (recoilCooldown <= 1)
-            {
-                accuracy = 0.0f;
-            }
+            tenniuzi.SetActive(false);
         }
     }
 
@@ -107,7 +116,7 @@ public class gunshoot : MonoBehaviour
         {
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(-hit.normal * 400f);
+                hit.rigidbody.AddForce(-hit.normal * 1000f);
             }
 
             GameObject impactGO = Instantiate(bulletparticle, hit.point, Quaternion.LookRotation(hit.normal));

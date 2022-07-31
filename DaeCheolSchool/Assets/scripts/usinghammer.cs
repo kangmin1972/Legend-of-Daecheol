@@ -11,6 +11,7 @@ public class usinghammer : MonoBehaviour
     public float randomaized;
     public Animation recoil;
     public GameObject hammer;
+    public Animation HammerIntro;
 
     public bool mobilesupport;
     // Start is called before the first frame update
@@ -22,40 +23,47 @@ public class usinghammer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mobilesupport == false)
+        if (weaponsystem.canusehammer == true)
         {
-            if (Input.GetMouseButton(0) && !hammerd.isPlaying)
+            hammer.SetActive(true);
             {
-                hammer.SetActive(true);
-                PlayerMove.canmove = false;
-                StartCoroutine(asdf());
-                randomaized = Random.Range(0, 3);
+                if (Input.GetMouseButton(0) && !hammerd.isPlaying)
+                {
+                    hammer.SetActive(true);
+                    PlayerMove.canmove = false;
+                    StartCoroutine(asdf());
+                    randomaized = Random.Range(0, 3);
 
-                if (randomaized == -1)
-                {
-                    hammerd.Play("HAMMER");
-                    swinging.Play();
+                    if (randomaized == -1)
+                    {
+                        hammerd.Play("HAMMER");
+                        swinging.Play();
+                    }
+                    if (randomaized == 0)
+                    {
+                        hammerd.Play("hammer2");
+                        swinging.Play();
+                    }
+                    if (randomaized == 2)
+                    {
+                        hammerd.Play("hammer3");
+                        swinging.Play();
+                    }
+                    recoil.Play("recoil");
                 }
-                if (randomaized == 0)
-                {
-                    hammerd.Play("hammer2");
-                    swinging.Play();
-                }
-                if (randomaized == 2)
-                {
-                    hammerd.Play("hammer3");
-                    swinging.Play();
-                }
-                recoil.Play("recoil");
             }
-        }
-        if (!hammerd.isPlaying)
-        {
-            ishammerused = false;
+            if (!hammerd.isPlaying)
+            {
+                ishammerused = false;
+            }
+            else
+            {
+                ishammerused = true;
+            }
         }
         else
         {
-            ishammerused = true;
+            hammer.SetActive(false);
         }
 
         IEnumerator asdf()
