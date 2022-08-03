@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 characterVelocityMomentum;
     public AudioSource footstep;
     public AudioSource hammerhit;
+    public LayerMask ignorethis;
     public AudioSource jump;
     public GameObject hammerspawn;
     public GameObject fakehammer;
@@ -166,7 +167,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit))
+            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, ignorethis))
             {
                 hookfire.Play();
                 hookshotsize = 0f;
