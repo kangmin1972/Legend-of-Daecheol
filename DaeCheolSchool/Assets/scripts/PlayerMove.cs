@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     private float hookshotsize;
     public AudioSource hookfinish;
     public AudioSource hookfire;
-    
+
     private enum State
     {
         Normal, HookshotFlyingPlayer, HookshotThrown
@@ -44,6 +44,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ignorethis = LayerMask.GetMask("Default");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
         _controller = GetComponent<CharacterController>();
@@ -167,7 +168,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, ignorethis))
+            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, Mathf.Infinity,ignorethis))
             {
                 hookfire.Play();
                 hookshotsize = 0f;
