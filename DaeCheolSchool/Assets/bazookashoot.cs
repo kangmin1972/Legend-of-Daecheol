@@ -81,6 +81,8 @@ public class bazookashoot : MonoBehaviour
     void Shoot()
     {
         StartCoroutine(ss.Shake(.2f, .1f));
+        weaponsystem.canchangeweapons = false;
+        StartCoroutine(shakedelay());
         RocketEffect.SetActive(true);
         rocketshot.Play();
         rocketshake.enabled = true;
@@ -104,5 +106,6 @@ public class bazookashoot : MonoBehaviour
     IEnumerator shakedelay()
     {
         yield return new WaitForSeconds(1);
+        weaponsystem.canchangeweapons = true;
     }
 }
