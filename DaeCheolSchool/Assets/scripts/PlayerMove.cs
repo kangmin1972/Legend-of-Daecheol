@@ -132,7 +132,20 @@ public class PlayerMove : MonoBehaviour
 
             _controller.Move(direction * _moveSpeed * Time.deltaTime);
 
-            if(characterVelocityMomentum.magnitude >= 0f)
+
+            if (isMoving == true && _controller.isGrounded)
+            {
+                if (!footstep.isPlaying)
+                {
+                    footstep.Play();
+                }
+            }
+            else
+            {
+                footstep.Stop();
+            }
+
+            if (characterVelocityMomentum.magnitude >= 0f)
             {
                 float momentumDrag = 3f;
                 characterVelocityMomentum -= characterVelocityMomentum * momentumDrag * Time.deltaTime;

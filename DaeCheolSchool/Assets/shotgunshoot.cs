@@ -8,12 +8,19 @@ public class shotgunshoot : MonoBehaviour
     public AudioSource shotgunsfx;
     public Animation shotgunrecoil;
     public GameObject shotgunmodel;
+    public Transform cam;
     public bool canattack;
     public bool animationrewind;
+    public LayerMask layer_mask;
+
+    public GameObject bulletparticle;
+
+    [SerializeField] float inaccuracyDistance = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        layer_mask = LayerMask.GetMask("Default");
         canattack = true;
         animationrewind = true;
         shotgunshake.playbackTime = 0;
@@ -35,10 +42,12 @@ public class shotgunshoot : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0) && canattack == true)
             {
+                Shoot();
                 shotgunshake.speed = 1;
                 canattack = false;
                 weaponsystem.canchangeweapons = false;
                 shotgunrecoil.Play("shotgunrecoil");
+                StartCoroutine(canchangeweaponm());
                 StartCoroutine(Event_canattack());
                 shotgunsfx.Play();
                 shotgunshake.Play(0);
@@ -53,10 +62,45 @@ public class shotgunshoot : MonoBehaviour
         }
     }
 
+    void Shoot()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(cam.position, ShootingDir(), out hit, Mathf.Infinity, layer_mask))
+            {
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * 1000f);
+                }
+
+                GameObject impactGO = Instantiate(bulletparticle, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
+        }
+    }
+
+    Vector3 ShootingDir()
+    {
+        Vector3 targetpos = cam.position + cam.forward * 1f;
+        targetpos = new Vector3(
+            targetpos.x + Random.Range(-inaccuracyDistance, inaccuracyDistance),
+            targetpos.y + Random.Range(-inaccuracyDistance, inaccuracyDistance),
+            targetpos.z + Random.Range(-inaccuracyDistance, inaccuracyDistance)
+            );
+        Vector3 direction = targetpos - cam.position;
+        return direction.normalized;
+    }
+
     IEnumerator Event_canattack()
     {
         yield return new WaitForSeconds(1.1f);
-        weaponsystem.canchangeweapons = true;
         canattack = true;
+    }
+
+    IEnumerator canchangeweaponm()
+    {
+        yield return new WaitForSeconds(0.5f);
+        weaponsystem.canchangeweapons = true;
     }
 }

@@ -105,7 +105,7 @@ public class bazookashoot : MonoBehaviour
 
     IEnumerator shakedelay()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         weaponsystem.canchangeweapons = true;
     }
 }
