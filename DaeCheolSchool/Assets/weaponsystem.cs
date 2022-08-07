@@ -7,6 +7,7 @@ public class weaponsystem : MonoBehaviour
 {
     [Header("Normal Vars")]
     public Animation weaponintro;
+    public AudioSource sfx;
     public bool weaponchanged;
     public int weaponstate;
     private Melee Meleeboxstate;
@@ -33,6 +34,9 @@ public class weaponsystem : MonoBehaviour
     public GameObject shootclosebox;
     public GameObject shootspecialbox;
     public GameObject explosionbox;
+
+    [Header("WAIT, ARE YOU HAVE IT?")]
+    public bool havehammer;
 
     private enum Melee
     {
@@ -85,6 +89,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -95,6 +100,7 @@ public class weaponsystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -105,6 +111,7 @@ public class weaponsystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -115,6 +122,7 @@ public class weaponsystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -125,6 +133,7 @@ public class weaponsystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -140,6 +149,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
@@ -154,6 +164,7 @@ public class weaponsystem : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
+            sfx.Play();
             allweaponremove();
             StopAllCoroutines();
             StartCoroutine(weaponuiremove());
