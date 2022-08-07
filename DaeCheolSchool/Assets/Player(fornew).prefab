@@ -152,7 +152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2261094605362653824}
   - component: {fileID: 7437537158316559005}
-  - component: {fileID: 2159657994272995008}
   - component: {fileID: 2831446122179547732}
   - component: {fileID: 7905378493833796556}
   m_Layer: 0
@@ -194,23 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smooth: 8
   multiplier: 2
---- !u!114 &2159657994272995008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878802967914570269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cedaf3bc4badfc64d996f3030a361d3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enable: 1
-  _amplitude: 0.1
-  _frequency: 30
-  _camera: {fileID: 6591417775121395479}
-  _cameraHolder: {fileID: 2261094605362653824}
 --- !u!111 &2831446122179547732
 Animation:
   m_ObjectHideFlags: 0
@@ -2989,6 +2971,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ebc4c47e1d7ef4091182f45bbce1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponintro: {fileID: 0}
+  weaponchanged: 0
+  weaponstate: 0
+  hammericon: {fileID: 0}
+  tennisuziicon: {fileID: 0}
+  shotgunicon: {fileID: 0}
+  bazookaicon: {fileID: 0}
+  weaponselectui: {fileID: 0}
+  meleebox: {fileID: 0}
+  shootfarbox: {fileID: 0}
+  shootclosebox: {fileID: 0}
+  shootspecialbox: {fileID: 0}
+  explosionbox: {fileID: 0}
+  iconmain: {fileID: 0}
 --- !u!114 &7905378493994064071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5432,15 +5428,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bfa88facf32e2740a6c60a20094b51e, type: 3}
---- !u!4 &6591417775121395479 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6697929026225506556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5778887051117999533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4bfa88facf32e2740a6c60a20094b51e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6697929026225506556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6591417775121395479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bfa88facf32e2740a6c60a20094b51e,
     type: 3}
   m_PrefabInstance: {fileID: 6697929026225506556}
   m_PrefabAsset: {fileID: 0}
@@ -5628,6 +5624,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34fc5baaa8522e34180f35773f86ae41, type: 3}
+--- !u!1 &5173757608208942801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3448632660892816048, guid: 34fc5baaa8522e34180f35773f86ae41,
+    type: 3}
+  m_PrefabInstance: {fileID: 7498739670949778529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &7648471345853981830 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 158809242973122791, guid: 34fc5baaa8522e34180f35773f86ae41,
@@ -5640,21 +5642,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7498739670949778529}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5868778747201608222 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4135139180563336831, guid: 34fc5baaa8522e34180f35773f86ae41,
-    type: 3}
-  m_PrefabInstance: {fileID: 7498739670949778529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442652341676639657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8941251274868969928, guid: 34fc5baaa8522e34180f35773f86ae41,
     type: 3}
   m_PrefabInstance: {fileID: 7498739670949778529}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5173757608208942801 stripped
+--- !u!1 &5868778747201608222 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3448632660892816048, guid: 34fc5baaa8522e34180f35773f86ae41,
+  m_CorrespondingSourceObject: {fileID: 4135139180563336831, guid: 34fc5baaa8522e34180f35773f86ae41,
     type: 3}
   m_PrefabInstance: {fileID: 7498739670949778529}
   m_PrefabAsset: {fileID: 0}

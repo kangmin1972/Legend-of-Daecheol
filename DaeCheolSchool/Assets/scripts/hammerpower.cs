@@ -7,6 +7,7 @@ public class hammerpower : MonoBehaviour
     public GameObject crushed;
     public AudioSource hammerhit;
     public ScreenShake ss;
+    public float hp = 100f;
     public float test = 0f;
 
     private void OnTriggerEnter(Collider other)
@@ -31,16 +32,16 @@ public class hammerpower : MonoBehaviour
 
         if (other.tag == "tennisbullet" && test == 0f)
         {
-                musictrans.iscombat = true;
-                musictrans.test = true;
-                Destroy(gameObject);
-                hammerhit.pitch = Random.Range(0.5f, 1.5f);
-                hammerhit.Play();
-                crushedstack.stack += 1;
-                test = 1f;
-                Vector3 oldPos = transform.position;
-                Instantiate(crushed, oldPos, Quaternion.identity);
-                Destroy(gameObject);
+            musictrans.iscombat = true;
+            musictrans.test = true;
+            Destroy(gameObject);
+            hammerhit.pitch = Random.Range(0.5f, 1.5f);
+            hammerhit.Play();
+            crushedstack.stack += 1;
+            test = 1f;
+            Vector3 oldPos = transform.position;
+            Instantiate(crushed, oldPos, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }
