@@ -35,6 +35,10 @@ public class weaponsystem : MonoBehaviour
     public GameObject shootspecialbox;
     public GameObject explosionbox;
 
+    [Header("Weapon Crosshairs")]
+    public GameObject shotguncrosshair;
+    public GameObject riflecrosshair;
+
     [Header("WAIT, ARE YOU HAVE IT?")]
     public bool havehammer;
 
@@ -82,6 +86,7 @@ public class weaponsystem : MonoBehaviour
     IEnumerator weaponuiremove()
     {
         yield return new WaitForSeconds(3.5f);
+        weaponstate = 0;
         weaponselectui.SetActive(false);
     }
 
@@ -269,30 +274,40 @@ public class weaponsystem : MonoBehaviour
         switch (weaponstate)
         {
             case 1:
+                shotguncrosshair.SetActive(false);
+                riflecrosshair.SetActive(false);
                 canusehammer = true;
                 canusetenniuzis = false;
                 canusebazooka = false;
                 canuseshotgun = false;
                 break;
             case 2:
+                shotguncrosshair.SetActive(false);
+                riflecrosshair.SetActive(true);
                 canusehammer = false;
                 canusetenniuzis = true;
                 canusebazooka = false;
                 canuseshotgun = false;
                 break;
             case 3:
+                shotguncrosshair.SetActive(true);
+                riflecrosshair.SetActive(false);
                 canusebazooka = false;
                 canusehammer = false;
                 canusetenniuzis = false;
                 canuseshotgun = true;
                 break;
             case 4:
-                canusehammer = true;
+                shotguncrosshair.SetActive(false);
+                riflecrosshair.SetActive(false);
+                canusehammer = false;
                 canusetenniuzis = false;
                 canusebazooka = false;
                 canuseshotgun = false;
                 break;
             case 5:
+                shotguncrosshair.SetActive(false);
+                riflecrosshair.SetActive(false);
                 canusebazooka = true;
                 canusehammer = false;
                 canusetenniuzis = false;
@@ -302,53 +317,6 @@ public class weaponsystem : MonoBehaviour
         weaponintro.Play("WeaponsIntro");
         canchangeweapons = true;
         weaponstate = 0;
-        
-    }
 
-    void rememberme()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && weaponstate != 1)
-        {
-            iconmain.sprite = hammericon;
-            weaponstate = 1;
-            weaponintro.Play("WeaponsIntro");
-            canusehammer = true;
-            canusetenniuzis = false;
-            canusebazooka = false;
-            canuseshotgun = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && weaponstate != 2)
-        {
-            iconmain.sprite = tennisuziicon;
-            weaponstate = 2;
-            weaponintro.Play("WeaponsIntro");
-            canusehammer = false;
-            canusetenniuzis = true;
-            canusebazooka = false;
-            canuseshotgun = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && weaponstate != 3)
-        {
-            iconmain.sprite = shotgunicon;
-            weaponstate = 3;
-            weaponintro.Play("WeaponsIntro");
-            canusebazooka = false;
-            canusehammer = false;
-            canusetenniuzis = false;
-            canuseshotgun = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4) && weaponstate != 4)
-        {
-            iconmain.sprite = bazookaicon;
-            weaponstate = 4;
-            weaponintro.Play("WeaponsIntro");
-            canusebazooka = true;
-            canusehammer = false;
-            canusetenniuzis = false;
-            canuseshotgun = false;
-        }
     }
 }

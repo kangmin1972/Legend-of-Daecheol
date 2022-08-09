@@ -5,13 +5,16 @@ using UnityEngine;
 public class explosioneffect : MonoBehaviour
 {
     public AudioSource explode;
-    public ScreenShake ss;
+    public GameObject ss;
+    public ScreenShake musd;
     // Start is called before the first frame update
     void Start()
     {
+        ss = GameObject.Find("MainCameraScreen");
+        musd = ss.GetComponent<ScreenShake>();
         explode.Play();
         knockback();
-        StartCoroutine(ss.Shake(.1f, .2f));
+        StartCoroutine(musd.Shake(.3f, .15f));
     }
 
     void knockback()

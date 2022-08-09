@@ -37,6 +37,7 @@ public class gunshoot : MonoBehaviour
     public Animator gunshake;
 
     public GameObject bulletparticle;
+    public Animation normalguncrosshair;
     public GameObject tenniuzi;
 
     public bool canshoot = true;
@@ -94,6 +95,7 @@ public class gunshoot : MonoBehaviour
 
     void Shoot()
     {
+        normalguncrosshair.Play("normalguncrosshair");
         gunshot.Play();
         gunshake.enabled = true;
         StartCoroutine(ss.Shake(.05f, .1f));

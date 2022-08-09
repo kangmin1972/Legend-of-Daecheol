@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class shotgunshoot : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class shotgunshoot : MonoBehaviour
     public bool canattack;
     public bool animationrewind;
     public LayerMask layer_mask;
+    public Animation shotgunhair;
+    public ScreenShake ss;
 
     public GameObject bulletparticle;
 
@@ -43,6 +46,7 @@ public class shotgunshoot : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && canattack == true)
             {
                 Shoot();
+                shotgunhair.Play("shotguncrosshair");
                 shotgunshake.speed = 1;
                 canattack = false;
                 weaponsystem.canchangeweapons = false;
@@ -64,7 +68,8 @@ public class shotgunshoot : MonoBehaviour
 
     void Shoot()
     {
-        for (int i = 0; i < 30; i++)
+        StartCoroutine(ss.Shake(.1f, .1f));
+        for (int i = 0; i < 14; i++)
         {
             RaycastHit hit;
             if(Physics.Raycast(cam.position, ShootingDir(), out hit, Mathf.Infinity, layer_mask))
