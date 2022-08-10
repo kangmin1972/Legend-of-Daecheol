@@ -24,11 +24,15 @@ public class PlayerMove : MonoBehaviour
     public static bool ishammerpowered;
     public Camera playercamera;
     private float characterVelocityY;
+    public Vector3 movementVector = Vector3.zero;
     private Vector3 hookshotPosition;
     private State state;
     private float hookshotsize;
     public AudioSource hookfinish;
     public AudioSource hookfire;
+    public bool isdashing;
+    public Mouse cam;
+    private float dashstarttime;
 
     private enum State
     {
@@ -54,19 +58,22 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(state) {
+        switch (state)
+        {
             default:
             case State.Normal:
-            HandleHookshotStart();
-            playermoving();
-            break;
+                playermoving();
+                Dash();
+                HandleDash();
+                HandleHookshotStart();
+                break;
             case State.HookshotThrown:
                 HandleHookshotThrow();
                 playermoving();
                 break;
             case State.HookshotFlyingPlayer:
                 HandleHookshotMovement();
-            break;
+                break;
         }
 
         if(Input.GetKeyDown(KeyCode.R))
@@ -83,6 +90,8 @@ public class PlayerMove : MonoBehaviour
 
         //float inputX = _mangJoystick.inputHorizontal();
         //float inputY = _mangJoystick.inputVertical();
+
+        movementVector = Vector3.ClampMagnitude(transform.right * inputX + transform.forward * inputY, 1.0f);
 
         if (ishammerpowered == true)
         {
@@ -174,6 +183,34 @@ public class PlayerMove : MonoBehaviour
 
             hammerspawn.SetActive(true);
             fakehammer.SetActive(false);
+        }
+    }
+
+    void HandleDash()
+    {
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isdashing = true;
+            dashstarttime = Time.time;
+        }
+    }
+
+    void Dash()
+    {
+        if(isdashing == true)
+        {
+            if (Time.time - dashstarttime <= 0.1f)
+            {
+                if (movementVector.Equals(Vector3.zero))
+                {
+                    _controller.Move(transform.forward * 30f * Time.deltaTime);
+                }
+                else
+                {
+                    _controller.Move(movementVector.normalized * 30f * Time.deltaTime);
+                }
+            }
         }
     }
 

@@ -6,6 +6,7 @@ public class Mouse : MonoBehaviour
 {
     public bool mobilesupport = false;
     public static float mouseSpeed = 5f;
+    public static bool canlook = true;
     public Transform playerBody;
     public Camera cam;
     private Touch initTouch = new Touch();
@@ -47,14 +48,17 @@ public class Mouse : MonoBehaviour
     {
         if (mobilesupport == false)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSpeed;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed;
+            if (canlook == true)
+            {
+                float mouseX = Input.GetAxis("Mouse X") * mouseSpeed;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            playerBody.Rotate(Vector3.up * mouseX);
+                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                playerBody.Rotate(Vector3.up * mouseX);
+            }
         }
         else
         {

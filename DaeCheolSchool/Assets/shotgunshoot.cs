@@ -69,6 +69,8 @@ public class shotgunshoot : MonoBehaviour
     void Shoot()
     {
         StartCoroutine(ss.Shake(.1f, .1f));
+        StartCoroutine(canmove());
+        PlayerMove.canmove = false;
         for (int i = 0; i < 14; i++)
         {
             RaycastHit hit;
@@ -107,5 +109,11 @@ public class shotgunshoot : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         weaponsystem.canchangeweapons = true;
+    }
+
+    IEnumerator canmove()
+    {
+        yield return new WaitForSeconds(0.05f);
+        PlayerMove.canmove = true;
     }
 }
