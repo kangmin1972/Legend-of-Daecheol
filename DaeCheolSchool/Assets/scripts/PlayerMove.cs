@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     public LayerMask ignorethis;
     public AudioSource jump;
     public GameObject hammerspawn;
+    public ParticleSystem dashparti;
+    public GameObject dasheffectgo;
     public GameObject fakehammer;
     public AudioSource thing;
     bool isMoving;
@@ -26,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     private float characterVelocityY;
     public Vector3 movementVector = Vector3.zero;
     private Vector3 hookshotPosition;
+    public Vector3 InputVector = Vector3.zero;
     private State state;
     private float hookshotsize;
     public AudioSource hookfinish;
@@ -33,6 +36,12 @@ public class PlayerMove : MonoBehaviour
     public bool isdashing;
     public Mouse cam;
     private float dashstarttime;
+
+    [SerializeField] ParticleSystem forwarddash;
+    [SerializeField] ParticleSystem backwarddash;
+    [SerializeField] ParticleSystem leftdash;
+    [SerializeField] ParticleSystem rightdash;
+
 
     private enum State
     {
@@ -119,6 +128,9 @@ public class PlayerMove : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
+            InputVector.x = Input.GetAxis("Horizontal");
+            InputVector.z = Input.GetAxis("Vertical");
+
             //float x = _mangJoystick.inputHorizontal();
             //float z = _mangJoystick.inputVertical();
 
@@ -191,9 +203,39 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            DashParticle();
             isdashing = true;
             dashstarttime = Time.time;
         }
+    }
+
+    void DashParticle()
+    {
+        if (InputVector.z > 0 && Mathf.Abs(InputVector.x) <= InputVector.z)
+        {
+            forwarddash.Play();
+            return;
+        }
+
+        if (InputVector.z < 0 && Mathf.Abs(InputVector.x) <= InputVector.z)
+        {
+            backwarddash.Play();
+            return;
+        }
+
+        if(InputVector.x > 0)
+        {
+            rightdash.Play();
+            return;
+        }
+
+        if (InputVector.x < 0)
+        {
+            leftdash.Play();
+            return;
+        }
+
+        forwarddash.Play();
     }
 
     void Dash()
