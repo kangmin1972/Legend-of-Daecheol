@@ -20,6 +20,7 @@ public class weaponsystem : MonoBehaviour
     public static bool canusebazooka;
     public static bool canuseshotgun;
     public static bool canchangeweapons;
+    public static bool canuseminigun;
 
     [Header("Weapon Icon Sprites")]
     public Sprite hammericon;
@@ -189,6 +190,7 @@ public class weaponsystem : MonoBehaviour
         canusetenniuzis = false;
         canusebazooka = false;
         canuseshotgun = false;
+        canuseminigun = false;
     }
 
     void clicktochange()
@@ -280,6 +282,7 @@ public class weaponsystem : MonoBehaviour
                 canusetenniuzis = false;
                 canusebazooka = false;
                 canuseshotgun = false;
+                canuseminigun = false;
                 break;
             case 2:
                 shotguncrosshair.SetActive(false);
@@ -288,6 +291,7 @@ public class weaponsystem : MonoBehaviour
                 canusetenniuzis = true;
                 canusebazooka = false;
                 canuseshotgun = false;
+                canuseminigun = false;
                 break;
             case 3:
                 shotguncrosshair.SetActive(true);
@@ -296,6 +300,7 @@ public class weaponsystem : MonoBehaviour
                 canusehammer = false;
                 canusetenniuzis = false;
                 canuseshotgun = true;
+                canuseminigun = false;
                 break;
             case 4:
                 shotguncrosshair.SetActive(false);
@@ -304,6 +309,7 @@ public class weaponsystem : MonoBehaviour
                 canusetenniuzis = false;
                 canusebazooka = false;
                 canuseshotgun = false;
+                canuseminigun = true;
                 break;
             case 5:
                 shotguncrosshair.SetActive(false);
@@ -312,6 +318,7 @@ public class weaponsystem : MonoBehaviour
                 canusehammer = false;
                 canusetenniuzis = false;
                 canuseshotgun = false;
+                canuseminigun = false;
                 break;
         }
         weaponintro.Play("WeaponsIntro");
