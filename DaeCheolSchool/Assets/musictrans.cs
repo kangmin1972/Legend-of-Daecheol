@@ -35,6 +35,12 @@ public class musictrans : MonoBehaviour
             combat.volume -= 0.01f;
             test = true;
         }
+
+        if(MonsterSpawn.combating == true)
+        {
+            StopAllCoroutines();
+            iscombat = true;
+        }
     }
 
     IEnumerator getpsyched()

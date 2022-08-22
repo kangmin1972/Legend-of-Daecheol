@@ -7,9 +7,9 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private Transform debugHitPointTransform;
     [SerializeField] private Transform hookshotTransform;
-    private float _moveSpeed = 10f;
+    private float _moveSpeed = 14f;
     private float _gravity = 6f;
-    private float _jumpSpeed = 1.3f;
+    private float _jumpSpeed = 1.2f;
     public ScreenShake ss;
     public static bool canmove = true;
     private Vector3 characterVelocityMomentum;
@@ -35,7 +35,9 @@ public class PlayerMove : MonoBehaviour
     public AudioSource hookfire;
     public bool isdashing;
     public Mouse cam;
+    public AudioSource dashsfx;
     private float dashstarttime;
+    public bool bunnyhobbool;
 
     [SerializeField] ParticleSystem forwarddash;
     [SerializeField] ParticleSystem backwarddash;
@@ -57,7 +59,6 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ignorethis = LayerMask.GetMask("Default");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
         _controller = GetComponent<CharacterController>();
@@ -140,6 +141,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (TestInputJump())
                 {
+                    bunnyhobbool = true;
                     _directionY = _jumpSpeed;
                     jump.Play();
                 }
@@ -203,6 +205,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            dashsfx.Play();
             DashParticle();
             isdashing = true;
             dashstarttime = Time.time;
@@ -246,11 +249,11 @@ public class PlayerMove : MonoBehaviour
             {
                 if (movementVector.Equals(Vector3.zero))
                 {
-                    _controller.Move(transform.forward * 30f * Time.deltaTime);
+                    _controller.Move(transform.forward * 45f * Time.deltaTime);
                 }
                 else
                 {
-                    _controller.Move(movementVector.normalized * 30f * Time.deltaTime);
+                    _controller.Move(movementVector.normalized * 45f * Time.deltaTime);
                 }
             }
         }
@@ -260,7 +263,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, Mathf.Infinity,ignorethis))
+            if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, Mathf.Infinity,~ignorethis))
             {
                 hookfire.Play();
                 hookshotsize = 0f;
@@ -277,7 +280,7 @@ public class PlayerMove : MonoBehaviour
     {
         hookshotTransform.LookAt(hookshotPosition);
 
-        float hookshotThrowSpeed = 120f;
+        float hookshotThrowSpeed = 200f;
         hookshotsize += hookshotThrowSpeed * Time.deltaTime;
         hookshotTransform.localScale = new Vector3(0.1f, 0.1f, hookshotsize);
 
@@ -292,8 +295,8 @@ public class PlayerMove : MonoBehaviour
     {
         hookshotTransform.LookAt(hookshotPosition);
         Vector3 hookshotDir = (hookshotPosition - transform.position).normalized;
-        float hookshotSpeedMin = 20f;
-        float hookshotSpeedMax = 40f;
+        float hookshotSpeedMin = 40f;
+        float hookshotSpeedMax = 60f;
         float hookshotSpeed = Mathf.Clamp(Vector3.Distance(transform.position, hookshotPosition), hookshotSpeedMin, hookshotSpeedMax);
         float hookshotSpeedMultiplier = 2f;
 

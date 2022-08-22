@@ -11,6 +11,10 @@ TagManager:
   - crushed
   - trigger_gethammer
   - tennisbullet
+  - enemyground
+  - CLASS/trigger1
+  - CLASS/kingclass
+  - ShutterShield
   layers:
   - Default
   - TransparentFX
@@ -29,8 +33,8 @@ TagManager:
   - bullet(tennies)
   - bulletimpact
   - missle
-  - 
-  - 
+  - enemyground
+  - triggerforplayer
   - 
   - 
   - 

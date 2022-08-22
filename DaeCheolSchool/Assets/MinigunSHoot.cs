@@ -19,6 +19,7 @@ public class MinigunSHoot : MonoBehaviour
     public bool isshooting;
     public bool readyanim;
     public AudioSource end;
+    public GameObject shootlight;
 
     public AudioSource windup;
 
@@ -43,6 +44,7 @@ public class MinigunSHoot : MonoBehaviour
         if (weaponsystem.canuseminigun == true)
         {
             minigunmodel.SetActive(true);
+            shootlight.SetActive(false);
             cooldownSpeed += Time.deltaTime * 90f;
 
             if(Input.GetMouseButtonDown(0))
@@ -64,6 +66,7 @@ public class MinigunSHoot : MonoBehaviour
             if (Input.GetMouseButton(0) && isshooting == true)
             {
                 minigunshake.Play("minigunshoot");
+                shootlight.SetActive(true);
                 if (cooldownSpeed >= fireRate)
                 {
                     gunshot.Play();
@@ -89,6 +92,7 @@ public class MinigunSHoot : MonoBehaviour
                     end.Play();
                 }
                 readyanim = false;
+                shootlight.SetActive(false);
                 if (minigunshake.isPlaying == true)
                 {
 
@@ -112,7 +116,7 @@ public class MinigunSHoot : MonoBehaviour
     {
         StartCoroutine(ss.Shake(.15f, .15f));
         RaycastHit hit;
-        if (Physics.Raycast(camera1.transform.position, camera1.transform.forward, out hit, Mathf.Infinity, ~IgnoreMe))
+        if (Physics.Raycast(camera1.transform.position, ShootingDir(), out hit, Mathf.Infinity, ~IgnoreMe))
         {
             if (hit.rigidbody != null)
             {
@@ -122,6 +126,18 @@ public class MinigunSHoot : MonoBehaviour
             GameObject impactGO = Instantiate(bulletparticle, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);
         }
+    }
+
+    Vector3 ShootingDir()
+    {
+        Vector3 targetpos = cam.position + cam.forward * 1f;
+        targetpos = new Vector3(
+            targetpos.x + Random.Range(-inaccuracyDistance, inaccuracyDistance),
+            targetpos.y + Random.Range(-inaccuracyDistance, inaccuracyDistance),
+            targetpos.z + Random.Range(-inaccuracyDistance, inaccuracyDistance)
+            );
+        Vector3 direction = targetpos - cam.position;
+        return direction.normalized;
     }
 
     IEnumerator Event_canattack()
