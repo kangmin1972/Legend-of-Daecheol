@@ -279,6 +279,6 @@ public class startscreen : MonoBehaviour
     IEnumerator startanimation()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("gametips");
+        SceneManager.LoadScene("house");
     }
 }

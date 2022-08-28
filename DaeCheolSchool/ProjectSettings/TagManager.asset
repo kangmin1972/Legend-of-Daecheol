@@ -15,6 +15,7 @@ TagManager:
   - CLASS/trigger1
   - CLASS/kingclass
   - ShutterShield
+  - USE/monitor
   layers:
   - Default
   - TransparentFX

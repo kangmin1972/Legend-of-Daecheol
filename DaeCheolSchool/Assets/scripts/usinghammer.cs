@@ -27,32 +27,36 @@ public class usinghammer : MonoBehaviour
         {
             hammer.SetActive(true);
             {
-                if (Input.GetMouseButton(0) && !hammerd.isPlaying)
+                if (Input.GetMouseButton(0))
                 {
-                    hammer.SetActive(true);
-                    PlayerMove.canmove = false;
-                    StartCoroutine(asdf());
-                    randomaized = Random.Range(0, 3);
+                    hammerd.Stop("weponsheadbob");
+                    if (!hammerd.IsPlaying("HAMMER") && !hammerd.IsPlaying("hammer2") && !hammerd.IsPlaying("hammer3"))
+                    {
+                        hammer.SetActive(true);
+                        PlayerMove.canmove = false;
+                        StartCoroutine(asdf());
+                        randomaized = Random.Range(0, 3);
 
-                    if (randomaized == -1)
-                    {
-                        hammerd.Play("HAMMER");
-                        swinging.Play();
+                        if (randomaized == -1)
+                        {
+                            hammerd.Play("HAMMER");
+                            swinging.Play();
+                        }
+                        if (randomaized == 0)
+                        {
+                            hammerd.Play("hammer2");
+                            swinging.Play();
+                        }
+                        if (randomaized == 2)
+                        {
+                            hammerd.Play("hammer3");
+                            swinging.Play();
+                        }
+                        recoil.Play("recoil");
                     }
-                    if (randomaized == 0)
-                    {
-                        hammerd.Play("hammer2");
-                        swinging.Play();
-                    }
-                    if (randomaized == 2)
-                    {
-                        hammerd.Play("hammer3");
-                        swinging.Play();
-                    }
-                    recoil.Play("recoil");
                 }
             }
-            if (!hammerd.isPlaying)
+            if (!hammerd.IsPlaying("HAMMER") && !hammerd.IsPlaying("hammer2") && !hammerd.IsPlaying("hammer3"))
             {
                 ishammerused = false;
             }

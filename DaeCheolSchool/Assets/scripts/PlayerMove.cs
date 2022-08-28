@@ -38,6 +38,9 @@ public class PlayerMove : MonoBehaviour
     public AudioSource dashsfx;
     private float dashstarttime;
     public bool bunnyhobbool;
+    public Animation headbob;
+    public Animation JumpAnim;
+    bool jumped;
 
     [SerializeField] ParticleSystem forwarddash;
     [SerializeField] ParticleSystem backwarddash;
@@ -139,12 +142,22 @@ public class PlayerMove : MonoBehaviour
 
             if (_controller.isGrounded)
             {
+                if (jumped == true)
+                {
+                    jumped = false;
+                    JumpAnim.Play();
+                }
                 if (TestInputJump())
                 {
                     bunnyhobbool = true;
+                    jumped = true;
                     _directionY = _jumpSpeed;
                     jump.Play();
                 }
+            }
+            else
+            {
+                jumped = true;
             }
 
             _directionY -= _gravity * Time.deltaTime;
@@ -162,9 +175,15 @@ public class PlayerMove : MonoBehaviour
                 {
                     footstep.Play();
                 }
+
+                if (!headbob.isPlaying)
+                {
+                    headbob.Play("weaponsheadbob");
+                }
             }
             else
             {
+                headbob.Stop("weaponsheadbob");
                 footstep.Stop();
             }
 
