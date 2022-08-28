@@ -13,10 +13,12 @@ public class MissionComputer : MonoBehaviour
     public static int Day = 1;
     public static bool ismonitoron;
     public GameObject MonitorUI;
+    public AudioSource ButtonSwitch;
+    public AudioSource MonitorTurnon;
 
     [Header("Messenger")]
     public GameObject NewMessage;
-    public bool ischeckedmessage;
+    public static bool ischeckedmessage;
     public GameObject MessagePopup;
 
     // Start is called before the first frame update
@@ -93,8 +95,9 @@ public class MissionComputer : MonoBehaviour
         if (other.tag == "Player")
         {
             useui.SetActive(true);
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.F) && MonitorUI.activeInHierarchy == false)
             {
+                MonitorTurnon.Play();
                 MonitorUI.SetActive(true);
                 monitortrigger.enabled = false;
                 useui.SetActive(false);
@@ -108,17 +111,21 @@ public class MissionComputer : MonoBehaviour
         if (other.tag == "Player")
         {
             useui.SetActive(false);
+
         }
     }
 
     public void exitmonitor()
     {
+        ButtonSwitch.Play();
         MonitorUI.SetActive(false);
         monitortrigger.enabled = true;
     }
 
     public void messagebutton()
     {
+        ButtonSwitch.Play();
+        ischeckedmessage = true;
         if (MessagePopup.activeInHierarchy == false)
         {
             MessagePopup.SetActive(true);
