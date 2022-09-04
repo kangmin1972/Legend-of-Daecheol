@@ -23,10 +23,24 @@ public class weaponsystem : MonoBehaviour
     public static bool canuseminigun;
 
     [Header("Weapon Icon Sprites")]
+    public Image Meleeicon;
+    public Image shootfaricon;
+    public Image shootcloseicon;
+    public Image shootspecialicon;
+    public Image explosionicon;
+
     public Sprite hammericon;
     public Sprite tennisuziicon;
     public Sprite shotgunicon;
     public Sprite bazookaicon;
+    public Sprite none;
+
+    [Header("Weapons Has Cartegories")]
+    public bool hasmelee;
+    public bool hasshootfar;
+    public bool hasshootclose;
+    public bool hasshootspecial;
+    public bool hasexplosion;
 
     [Header("Weapon Icons")]
     public GameObject weaponselectui;
@@ -41,7 +55,11 @@ public class weaponsystem : MonoBehaviour
     public GameObject riflecrosshair;
 
     [Header("WAIT, ARE YOU HAVE IT?")]
-    public bool havehammer;
+    public static bool havehammer = true;
+    public static bool havetennisuzi;
+    public static bool haveshotgun;
+    public static bool haveminigun;
+    public static bool havebazooka;
 
     private enum Melee
     {
@@ -81,6 +99,36 @@ public class weaponsystem : MonoBehaviour
         {
             weaponselectfornumbers();
             weaponselectforscroll();
+        }
+
+        itemcheck();
+
+        switch (weaponstate)
+        {
+            case 2:
+                if (hasshootfar == false)
+                {
+                    shootfaricon.sprite = none;
+                }
+                break;
+            case 3:
+                if (hasshootclose == false)
+                {
+                    shootcloseicon.sprite = none;
+                }
+                break;
+            case 4:
+                if (hasshootspecial == false)
+                {
+                    shootspecialicon.sprite = none;
+                }
+                break;
+            case 5:
+                if (hasexplosion == false)
+                {
+                    explosionicon.sprite = none;
+                }
+                break;
         }
     }
 
@@ -270,6 +318,26 @@ public class weaponsystem : MonoBehaviour
         explosionbox.SetActive(true);
     }
 
+    void itemcheck()
+    {
+        if (havetennisuzi == true)
+        {
+            hasshootfar = true;
+        }
+        if (haveshotgun == true)
+        {
+            hasshootclose = true;
+        }
+        if (haveminigun == true)
+        {
+            hasshootspecial = true;
+        }
+        if (havebazooka == true)
+        {
+            hasexplosion = true;
+        }
+    }
+
     IEnumerator weaponusecooltime()
     {
         yield return new WaitForSeconds(0.1f);
@@ -285,45 +353,80 @@ public class weaponsystem : MonoBehaviour
                 canuseminigun = false;
                 break;
             case 2:
-                shotguncrosshair.SetActive(false);
-                riflecrosshair.SetActive(true);
-                canusehammer = false;
-                canusetenniuzis = true;
-                canusebazooka = false;
-                canuseshotgun = false;
-                canuseminigun = false;
+                userifle();
+                
                 break;
             case 3:
-                shotguncrosshair.SetActive(true);
-                riflecrosshair.SetActive(false);
-                canusebazooka = false;
-                canusehammer = false;
-                canusetenniuzis = false;
-                canuseshotgun = true;
-                canuseminigun = false;
+                useshotgun();
                 break;
             case 4:
-                shotguncrosshair.SetActive(false);
-                riflecrosshair.SetActive(false);
-                canusehammer = false;
-                canusetenniuzis = false;
-                canusebazooka = false;
-                canuseshotgun = false;
-                canuseminigun = true;
+                useminigun();
                 break;
             case 5:
-                shotguncrosshair.SetActive(false);
-                riflecrosshair.SetActive(false);
-                canusebazooka = true;
-                canusehammer = false;
-                canusetenniuzis = false;
-                canuseshotgun = false;
-                canuseminigun = false;
+                usebazooka();
                 break;
         }
         weaponintro.Play("WeaponsIntro");
         canchangeweapons = true;
         weaponstate = 0;
 
+    }
+
+    //weaponssettings
+
+    void userifle()
+    {
+        if (hasshootfar == true)
+        {
+            shotguncrosshair.SetActive(false);
+            riflecrosshair.SetActive(true);
+            canusehammer = false;
+            canusetenniuzis = true;
+            canusebazooka = false;
+            canuseshotgun = false;
+            canuseminigun = false;
+        }
+    }
+
+    void useshotgun()
+    {
+        if (hasshootclose == true)
+        {
+            shotguncrosshair.SetActive(true);
+            riflecrosshair.SetActive(false);
+            canusebazooka = false;
+            canusehammer = false;
+            canusetenniuzis = false;
+            canuseshotgun = true;
+            canuseminigun = false;
+        }
+    }
+
+    void useminigun()
+    {
+        if (hasshootspecial == true)
+        {
+            shotguncrosshair.SetActive(false);
+            riflecrosshair.SetActive(false);
+            canusehammer = false;
+            canusetenniuzis = false;
+            canusebazooka = false;
+            canuseshotgun = false;
+            canuseminigun = true;
+        }
+    }
+
+    void usebazooka()
+    {
+        if (hasexplosion == true)
+        {
+            shotguncrosshair.SetActive(false);
+            riflecrosshair.SetActive(false);
+            canusebazooka = true;
+            canusehammer = false;
+            canusetenniuzis = false;
+            canuseshotgun = false;
+            canuseminigun = false;
+        }
     }
 }
