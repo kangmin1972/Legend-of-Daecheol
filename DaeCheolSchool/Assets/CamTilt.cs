@@ -20,7 +20,7 @@ public class CamTilt : MonoBehaviour
         }
         else if (Input.GetKeyUp(_leftBtn))
         {
-            transform.Rotate(0, 0, -_tiltAmount);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         // Same as above, but inverted values
@@ -30,7 +30,7 @@ public class CamTilt : MonoBehaviour
         }
         else if (Input.GetKeyUp(_rightBtn))
         {
-            transform.Rotate(0, 0, _tiltAmount);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

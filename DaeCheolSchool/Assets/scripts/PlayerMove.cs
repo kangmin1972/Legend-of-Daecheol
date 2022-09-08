@@ -145,7 +145,7 @@ public class PlayerMove : MonoBehaviour
                 if (jumped == true)
                 {
                     jumped = false;
-                    JumpAnim.Play();
+                    //JumpAnim.Play();
                 }
                 if (TestInputJump())
                 {

@@ -169,7 +169,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 0
+    value: 4
   mixerRedOutRedIn:
     overrideState: 1
     value: 100
@@ -1427,7 +1427,7 @@ MonoBehaviour:
     value: 9.16
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.88
   softKnee:
     overrideState: 1
     value: 0.5
@@ -1448,11 +1448,11 @@ MonoBehaviour:
     value: 0
   dirtTexture:
     overrideState: 1
-    value: {fileID: 0}
+    value: {fileID: 2800000, guid: 98c7775d45667404a9705da801d5a4b9, type: 3}
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 0
+    value: 2
 --- !u!114 &5734040001865239959
 MonoBehaviour:
   m_ObjectHideFlags: 3
