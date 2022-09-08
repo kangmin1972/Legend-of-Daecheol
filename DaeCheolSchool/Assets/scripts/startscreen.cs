@@ -25,6 +25,7 @@ public class startscreen : MonoBehaviour
     public AudioSource buttonclick;
 
     public Toggle FullSCREAM;
+    public Animation fadeanim;
 
     FullScreenMode screenMode;
 
@@ -118,6 +119,7 @@ public class startscreen : MonoBehaviour
         {
             buttonclick.Play();
             anim.Play("cameramove2");
+            fadeanim.Play();
             StartCoroutine(startanimation());
             caninteract = false;
         }
@@ -279,6 +281,6 @@ public class startscreen : MonoBehaviour
     IEnumerator startanimation()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("house");
+        SceneManager.LoadScene("NewGame");
     }
 }
