@@ -71,7 +71,7 @@ public class shotgunshoot : MonoBehaviour
         StartCoroutine(ss.Shake(.1f, .1f));
         StartCoroutine(canmove());
         PlayerMove.canmove = false;
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 30; i++)
         {
             RaycastHit hit;
             if(Physics.Raycast(cam.position, ShootingDir(), out hit, Mathf.Infinity, layer_mask))
