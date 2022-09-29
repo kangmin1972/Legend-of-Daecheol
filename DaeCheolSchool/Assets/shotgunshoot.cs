@@ -15,6 +15,8 @@ public class shotgunshoot : MonoBehaviour
     public LayerMask layer_mask;
     public Animation shotgunhair;
     public ScreenShake ss;
+    public GameObject shootPoint;
+    public GameObject bullet;
 
     public GameObject bulletparticle;
 
@@ -68,7 +70,7 @@ public class shotgunshoot : MonoBehaviour
 
     void Shoot()
     {
-        StartCoroutine(ss.Shake(.1f, .1f));
+        StartCoroutine(ss.Shake(.3f, .1f));
         StartCoroutine(canmove());
         PlayerMove.canmove = false;
         for (int i = 0; i < 30; i++)
@@ -80,6 +82,9 @@ public class shotgunshoot : MonoBehaviour
                 {
                     hit.rigidbody.AddForce(-hit.normal * 1000f);
                 }
+
+                GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+                tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
 
                 GameObject impactGO = Instantiate(bulletparticle, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactGO, 2f);
@@ -113,7 +118,7 @@ public class shotgunshoot : MonoBehaviour
 
     IEnumerator canmove()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         PlayerMove.canmove = true;
     }
 }
