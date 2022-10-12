@@ -21,6 +21,9 @@ public class MinigunSHoot : MonoBehaviour
     public AudioSource end;
     public GameObject shootlight;
 
+    public GameObject shootPoint;
+    public GameObject bullet;
+
     public AudioSource windup;
 
     public float cooldownSpeed;
@@ -122,6 +125,9 @@ public class MinigunSHoot : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * 1000f);
             }
+
+            GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+            tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
 
             GameObject impactGO = Instantiate(bulletparticle, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);

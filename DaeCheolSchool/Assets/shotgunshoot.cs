@@ -5,7 +5,7 @@ using TMPro;
 
 public class shotgunshoot : MonoBehaviour
 {
-    public Animator shotgunshake;
+    public Animation shotgunshake;
     public AudioSource shotgunsfx;
     public Animation shotgunrecoil;
     public GameObject shotgunmodel;
@@ -17,6 +17,7 @@ public class shotgunshoot : MonoBehaviour
     public ScreenShake ss;
     public GameObject shootPoint;
     public GameObject bullet;
+    public int bulletint;
 
     public GameObject bulletparticle;
 
@@ -27,9 +28,6 @@ public class shotgunshoot : MonoBehaviour
     {
         layer_mask = LayerMask.GetMask("Default");
         canattack = true;
-        animationrewind = true;
-        shotgunshake.playbackTime = 0;
-        shotgunshake.Rebind();
     }
 
     // Update is called once per frame
@@ -38,33 +36,32 @@ public class shotgunshoot : MonoBehaviour
         if (weaponsystem.canuseshotgun == true)
         {
             shotgunmodel.SetActive(true);
-            if (animationrewind == true)
-            {
-                shotgunshake.playbackTime = 0;
-                shotgunshake.Rebind();
-                shotgunshake.speed = 0;
-                animationrewind = false;
-            }
             if (Input.GetMouseButtonDown(0) && canattack == true)
             {
+                shotgunshake.Stop();
                 Shoot();
                 shotgunhair.Play("shotguncrosshair");
-                shotgunshake.speed = 1;
+                switch(bulletint)
+                {
+                    case 0:
+                        shotgunshake.Play("shotgunshoot1");
+                        break;
+                    case 1:
+                        shotgunshake.Play("shotgunshake");
+                        break;
+                }
                 canattack = false;
                 weaponsystem.canchangeweapons = false;
                 shotgunrecoil.Play("shotgunrecoil");
                 StartCoroutine(canchangeweaponm());
                 StartCoroutine(Event_canattack());
                 shotgunsfx.Play();
-                shotgunshake.Play(0);
             }
         }
         else
         {
             animationrewind = true;
             shotgunmodel.SetActive(false);
-            shotgunshake.playbackTime = 0;
-            shotgunshake.Rebind();
         }
     }
 
@@ -106,7 +103,17 @@ public class shotgunshoot : MonoBehaviour
 
     IEnumerator Event_canattack()
     {
-        yield return new WaitForSeconds(1.1f);
+        switch (bulletint)
+        {
+            case 0:
+                yield return new WaitForSeconds(0.5f);
+                bulletint = 1;
+                break;
+            case 1:
+                yield return new WaitForSeconds(1.1f);
+                bulletint = 0;
+                break;
+        }
         canattack = true;
     }
 
