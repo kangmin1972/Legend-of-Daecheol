@@ -19,7 +19,7 @@ public class credits : MonoBehaviour
 
     IEnumerator movetostart()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(9);
         SceneManager.LoadScene("start");
     }
 }
