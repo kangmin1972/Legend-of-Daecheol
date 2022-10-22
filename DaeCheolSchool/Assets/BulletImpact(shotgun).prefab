@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5214781893046122941}
   - component: {fileID: 230477510819590733}
-  m_Layer: 15
+  m_Layer: 19
   m_Name: bulletimpacttrig
   m_TagString: tennisbullet
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 5730860016207463907}
   - component: {fileID: 3580452225135665933}
   - component: {fileID: 3259145173757466301}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   - component: {fileID: 1091451763313635086}
   - component: {fileID: 797232873782629275}
   - component: {fileID: 208783116518455246}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: BulletImpact(shotgun)
   m_TagString: tennisbullet
   m_Icon: {fileID: 0}

@@ -45,7 +45,7 @@ public class gunshoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layer_mask = LayerMask.GetMask("Default");
+        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
         canshoot = true;
     }
 
@@ -108,13 +108,13 @@ public class gunshoot : MonoBehaviour
 
         fireRotation = Quaternion.RotateTowards(fireRotation, Random.rotation, Random.Range(0.0f, currentSpread));
 
-        if (Physics.Raycast(transform.position, fireRotation * Vector3.forward, out hit, Mathf.Infinity,layer_mask))
+        if (Physics.Raycast(transform.position, fireRotation * Vector3.forward, out hit, Mathf.Infinity,~layer_mask))
         {
             GameObject tempBullet = Instantiate(bullet, shootPoint.transform.position, fireRotation);
             tempBullet.GetComponent<Bullet>().hitPoint = hit.point;
         }
 
-        if (Physics.Raycast(camera1.transform.position, camera1.transform.forward, out hit, range, ~IgnoreMe))
+        if (Physics.Raycast(camera1.transform.position, camera1.transform.forward, out hit, range, ~layer_mask))
         {
             if (hit.rigidbody != null)
             {

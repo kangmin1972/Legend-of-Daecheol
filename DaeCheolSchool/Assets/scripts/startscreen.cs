@@ -15,6 +15,7 @@ public class startscreen : MonoBehaviour
     public static int isleavingpieces = 2;
     public GameObject normalcanvas;
     public GameObject gamemodecanvas;
+    public GameObject mapselectcanvas;
     public Animation anim;
     public TMP_Dropdown resolutiondrop;
     public TextMeshProUGUI graphic;
@@ -24,8 +25,15 @@ public class startscreen : MonoBehaviour
     public TextMeshProUGUI leavingpieces;
     public AudioSource buttonclick;
 
+    public TextMeshProUGUI mapselect_modname;
+
+    public TextMeshProUGUI modname;
+    public TextMeshProUGUI moddesc;
+
     public Toggle FullSCREAM;
     public Animation fadeanim;
+
+    public GameObject creditscanvas;
 
     FullScreenMode screenMode;
 
@@ -40,6 +48,8 @@ public class startscreen : MonoBehaviour
     {
         GameLoad();
         StartCoroutine(startset());
+
+
     }
 
     private void Update()
@@ -107,6 +117,8 @@ public class startscreen : MonoBehaviour
     {
         if (caninteract == true)
         {
+            moddesc.text = "";
+            modname.text = "";
             buttonclick.Play();
             normalcanvas.SetActive(false);
             gamemodecanvas.SetActive(true);
@@ -118,11 +130,41 @@ public class startscreen : MonoBehaviour
         if (caninteract == true)
         {
             buttonclick.Play();
-            anim.Play("cameramove2");
+            gamemodecanvas.SetActive(false);
+            mapselectcanvas.SetActive(true);
+        }
+    }
+
+    public void map_school()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
             fadeanim.Play();
             StartCoroutine(startanimation());
             caninteract = false;
         }
+    }
+
+    public void hover_survival()
+    {
+        modname.text = "스토리 모드";
+        moddesc.text = "어두컴컴하고 무시무시한 학교에서 살아남을 수 있나요? 물건과 적을 부수며 돈을 벌고, 그 돈으로 무기를 강화하고, 여러가지 스킬을 사용해서 스토리를 진행하는 모드입니다.";
+        mapselect_modname.text = "- 스토리 모드 -";
+    }
+
+    public void hover_destory()
+    {
+        modname.text = "파괴 모드";
+        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 오로지 물건만 부수는 모드입니다.";
+        mapselect_modname.text = "- 파괴 모드 -";
+    }
+
+    public void hover_infinity()
+    {
+        modname.text = "무한 모드";
+        moddesc.text = "무한으로 물건을 부수고, 자유자재로 놀아볼 수 있는 모드입니다.";
+        mapselect_modname.text = "- 무한 모드 -";
     }
 
     public void goback()
@@ -132,6 +174,36 @@ public class startscreen : MonoBehaviour
             buttonclick.Play();
             normalcanvas.SetActive(true);
             gamemodecanvas.SetActive(false);
+        }
+    }
+
+    public void goback_mapselect()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            gamemodecanvas.SetActive(true);
+            mapselectcanvas.SetActive(false);
+        }
+    }
+
+    public void credits()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            creditscanvas.SetActive(true);
+            normalcanvas.SetActive(false);
+        }
+    }
+
+    public void goback_credits()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            normalcanvas.SetActive(true);
+            creditscanvas.SetActive(false);
         }
     }
 
@@ -281,6 +353,6 @@ public class startscreen : MonoBehaviour
     IEnumerator startanimation()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("NewGame");
+        SceneManager.LoadScene("gametips");
     }
 }

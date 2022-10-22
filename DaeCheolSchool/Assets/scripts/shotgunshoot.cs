@@ -26,7 +26,7 @@ public class shotgunshoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layer_mask = LayerMask.GetMask("Default");
+        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
         canattack = true;
     }
 
@@ -73,7 +73,7 @@ public class shotgunshoot : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             RaycastHit hit;
-            if(Physics.Raycast(cam.position, ShootingDir(), out hit, Mathf.Infinity, layer_mask))
+            if(Physics.Raycast(cam.position, ShootingDir(), out hit, Mathf.Infinity, ~layer_mask))
             {
                 if (hit.rigidbody != null)
                 {

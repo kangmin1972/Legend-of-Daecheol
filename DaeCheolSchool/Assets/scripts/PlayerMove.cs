@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private Transform debugHitPointTransform;
     [SerializeField] private Transform hookshotTransform;
     private float _moveSpeed = 14f;
+    public float stamina = 1f;
+    public Image staminabar;
     private float _gravity = 6f;
     private float _jumpSpeed = 1.2f;
     public ScreenShake ss;
@@ -168,6 +171,13 @@ public class PlayerMove : MonoBehaviour
 
             _controller.Move(direction * _moveSpeed * Time.deltaTime);
 
+            if(stamina < 1)
+            {
+                stamina += 0.005f;
+            }
+
+            staminabar.fillAmount = stamina;
+
 
             if (isMoving == true && _controller.isGrounded)
             {
@@ -222,7 +232,7 @@ public class PlayerMove : MonoBehaviour
     void HandleDash()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (stamina >= 0.3f))
         {
             dashsfx.Play();
             DashParticle();
@@ -268,10 +278,12 @@ public class PlayerMove : MonoBehaviour
             {
                 if (movementVector.Equals(Vector3.zero))
                 {
+                    stamina -= 0.05f;
                     _controller.Move(transform.forward * 45f * Time.deltaTime);
                 }
                 else
                 {
+                    stamina -= 0.05f;
                     _controller.Move(movementVector.normalized * 45f * Time.deltaTime);
                 }
             }
