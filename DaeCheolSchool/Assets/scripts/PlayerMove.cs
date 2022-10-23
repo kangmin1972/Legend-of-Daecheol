@@ -65,6 +65,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ignorethis = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
         _controller = GetComponent<CharacterController>();

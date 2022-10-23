@@ -162,9 +162,9 @@ public class startscreen : MonoBehaviour
 
     public void hover_infinity()
     {
-        modname.text = "무한 모드";
-        moddesc.text = "무한으로 물건을 부수고, 자유자재로 놀아볼 수 있는 모드입니다.";
-        mapselect_modname.text = "- 무한 모드 -";
+        modname.text = "관광 모드";
+        moddesc.text = "대철중학교를 구경해볼 수 있는 모드입니다. 특별한 안내원과 함께하세요! (VR 지원됨!)";
+        mapselect_modname.text = "- 관광 모드 -";
     }
 
     public void goback()
