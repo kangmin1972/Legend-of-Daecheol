@@ -4878,6 +4878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 4196011569680359263}
   ss: {fileID: 0}
+  musd: {fileID: 0}
 --- !u!82 &4196011569680359263
 AudioSource:
   m_ObjectHideFlags: 0

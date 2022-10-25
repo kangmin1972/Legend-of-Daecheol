@@ -3,53 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header("Normal Vars")]
     [SerializeField] private Transform debugHitPointTransform;
     [SerializeField] private Transform hookshotTransform;
     private float _moveSpeed = 14f;
     public float stamina = 1f;
-    public Image staminabar;
     private float _gravity = 6f;
     private float _jumpSpeed = 1.2f;
-    public ScreenShake ss;
-    public static bool canmove = true;
-    private Vector3 characterVelocityMomentum;
-    public AudioSource footstep;
-    public AudioSource hammerhit;
-    public LayerMask ignorethis;
-    public AudioSource jump;
-    public GameObject hammerspawn;
-    public ParticleSystem dashparti;
-    public GameObject dasheffectgo;
-    public GameObject fakehammer;
-    public AudioSource thing;
     bool isMoving;
     public static bool ishammerpowered;
-    public Camera playercamera;
-    private float characterVelocityY;
+    private State state;
+    private float hookshotsize;
+    private float dashstarttime;
+    public bool bunnyhobbool;
+    public static bool canmove = true;
+    public LayerMask ignorethis;
+    public bool isdashing;
+    bool jumped;
+    public static int PlayerHP;
+    public bool canaction = true;
+
+    [Header("UI / Screen System")]
+    public Image staminabar;
+    public ScreenShake ss;
+    public Mouse cam;
+    public TextMeshProUGUI PlayerHPUI;
+
+    [Header("SoundFX")]
+    public AudioSource footstep;
+    public AudioSource hammerhit;
+    public AudioSource jump;
+    public AudioSource hookfinish;
+    public AudioSource hookfire;
+    public AudioSource thing;
+    public AudioSource dashsfx;
+    public AudioSource flashlightsfx;
+
+    [Header("Vector")]
     public Vector3 movementVector = Vector3.zero;
     private Vector3 hookshotPosition;
     public Vector3 InputVector = Vector3.zero;
-    private State state;
-    private float hookshotsize;
-    public AudioSource hookfinish;
-    public AudioSource hookfire;
-    public bool isdashing;
-    public Mouse cam;
-    public AudioSource dashsfx;
-    private float dashstarttime;
-    public bool bunnyhobbool;
-    public Animation headbob;
-    public Animation JumpAnim;
-    bool jumped;
+    private float characterVelocityY;
+    private Vector3 characterVelocityMomentum;
 
+    [Header("Particles")]
     [SerializeField] ParticleSystem forwarddash;
     [SerializeField] ParticleSystem backwarddash;
     [SerializeField] ParticleSystem leftdash;
     [SerializeField] ParticleSystem rightdash;
+    public ParticleSystem dashparti;
 
+    [Header("GameObjects")]
+    public GameObject hammerspawn;
+    public GameObject dasheffectgo;
+    public GameObject fakehammer;
+    public Camera playercamera;
+    public GameObject flashlight;
+
+    [Header("Animations")]
+    public Animation headbob;
+    public Animation JumpAnim;
 
     private enum State
     {
@@ -65,6 +82,8 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stamina = 0;
+        PlayerHP = 1;
         ignorethis = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
@@ -74,6 +93,23 @@ public class PlayerMove : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        stateswitch();
+        Flashlighting();
+        PlayerHPUI.text = PlayerHP.ToString();
+        StartIntro();
+    }
+
+    void StartIntro()
+    {
+        if (PlayerHP < 100)
+        {
+            PlayerHP += 1;
+            stamina += 0.5f;
+        }
+    }
+
+    void stateswitch()
     {
         switch (state)
         {
@@ -92,12 +128,6 @@ public class PlayerMove : MonoBehaviour
                 HandleHookshotMovement();
                 break;
         }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(4);
-        }
-
     }
 
     public void playermoving()
@@ -158,10 +188,24 @@ public class PlayerMove : MonoBehaviour
                     _directionY = _jumpSpeed;
                     jump.Play();
                 }
+
+                if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    footstep.Stop();
+                    _moveSpeed = 7f;
+                    canaction = false;
+                }
+                else
+                {
+                    _moveSpeed = 14f;
+                    canaction = true;
+                }
             }
             else
             {
                 jumped = true;
+                canaction = true;
+                _moveSpeed = 14f;
             }
 
             _directionY -= _gravity * Time.deltaTime;
@@ -211,6 +255,22 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    void Flashlighting()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            switch (flashlight.activeInHierarchy)
+            {
+                case true:
+                    flashlight.SetActive(false);
+                    break;
+                case false:
+                    flashlight.SetActive(true);
+                    break;
+            }
+        }
+    }
+
     public void PlayerJumping()
     {
         if (_controller.isGrounded)
@@ -228,12 +288,16 @@ public class PlayerMove : MonoBehaviour
             hammerspawn.SetActive(true);
             fakehammer.SetActive(false);
         }
+        if (other.tag == "")
+        {
+
+        }
     }
 
     void HandleDash()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (stamina >= 0.3f))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (stamina >= 0.3f) && canaction == true)
         {
             dashsfx.Play();
             DashParticle();
@@ -293,7 +357,7 @@ public class PlayerMove : MonoBehaviour
 
     private void HandleHookshotStart()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && canaction == true)
         {
             if(Physics.Raycast(playercamera.transform.position, playercamera.transform.forward, out RaycastHit raycastHit, Mathf.Infinity,~ignorethis))
             {
