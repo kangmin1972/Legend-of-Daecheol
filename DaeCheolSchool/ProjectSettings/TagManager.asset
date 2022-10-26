@@ -16,6 +16,7 @@ TagManager:
   - CLASS/kingclass
   - ShutterShield
   - USE/monitor
+  - PlayerWillDie
   layers:
   - Default
   - TransparentFX
