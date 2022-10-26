@@ -83,7 +83,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         stamina = 0;
-        PlayerHP = 1;
+        PlayerHP = 100;
         ignorethis = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
@@ -97,15 +97,10 @@ public class PlayerMove : MonoBehaviour
         stateswitch();
         Flashlighting();
         PlayerHPUI.text = PlayerHP.ToString();
-        StartIntro();
-    }
 
-    void StartIntro()
-    {
-        if (PlayerHP < 100)
+        if (PlayerHP <= 0)
         {
-            PlayerHP += 1;
-            stamina += 0.5f;
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -288,9 +283,13 @@ public class PlayerMove : MonoBehaviour
             hammerspawn.SetActive(true);
             fakehammer.SetActive(false);
         }
-        if (other.tag == "")
-        {
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "PlayerWillDie")
+        {
+            PlayerHP -= 5;
         }
     }
 

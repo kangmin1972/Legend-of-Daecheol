@@ -148,22 +148,22 @@ public class startscreen : MonoBehaviour
 
     public void hover_survival()
     {
-        modname.text = "스토리 모드";
-        moddesc.text = "어두컴컴하고 무시무시한 학교에서 살아남을 수 있나요? 물건과 적을 부수며 돈을 벌고, 그 돈으로 무기를 강화하고, 여러가지 스킬을 사용해서 스토리를 진행하는 모드입니다.";
-        mapselect_modname.text = "- 스토리 모드 -";
+        modname.text = "잠입 모드";
+        moddesc.text = "어두컴컴하고 무시무시한 학교에서 로봇과 적을 피하면서 물건을 파괴하는 모드입니다. 물건을 파괴하며 돈을 얻고, 그 돈으로 무기를 강화하세요. 적들 근처에서는 조용히 행동하세요!";
+        mapselect_modname.text = "- 잠입 모드 -";
     }
 
     public void hover_destory()
     {
         modname.text = "파괴 모드";
-        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 오로지 물건만 부수는 모드입니다.";
+        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 모든 무기가 열리며, 오로지 물건만 부수는 모드입니다.";
         mapselect_modname.text = "- 파괴 모드 -";
     }
 
     public void hover_infinity()
     {
         modname.text = "관광 모드";
-        moddesc.text = "대철중학교를 구경해볼 수 있는 모드입니다. 특별한 안내원과 함께하세요! (VR 지원됨!)";
+        moddesc.text = "대철중학교를 구경해볼 수 있는 모드입니다. 특별한 안내원과 함께하세요!";
         mapselect_modname.text = "- 관광 모드 -";
     }
 
