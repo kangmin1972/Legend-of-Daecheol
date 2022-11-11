@@ -39,17 +39,18 @@ public class bazookashoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
+        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal", "bulletimpact");
         canshoot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        cooldownSpeed += Time.deltaTime * 90f;
         if (weaponsystem.canusebazooka == true)
         {
             bazooka.SetActive(true);
-            cooldownSpeed += Time.deltaTime * 90f;
+            
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -75,6 +76,7 @@ public class bazookashoot : MonoBehaviour
         else
         {
             bazooka.SetActive(false);
+            rocketshake.enabled = false;
         }
     }
 

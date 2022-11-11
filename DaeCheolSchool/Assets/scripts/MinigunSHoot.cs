@@ -37,7 +37,7 @@ public class MinigunSHoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IgnoreMe = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
+        IgnoreMe = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal", "bulletimpact");
         canattack = true;
         animationrewind = true;
     }

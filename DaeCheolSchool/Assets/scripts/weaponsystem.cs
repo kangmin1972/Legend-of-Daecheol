@@ -33,7 +33,10 @@ public class weaponsystem : MonoBehaviour
     public Sprite tennisuziicon;
     public Sprite shotgunicon;
     public Sprite bazookaicon;
+    public Sprite minigunicon;
     public Sprite none;
+
+    public Image UIWeaponIcon;
 
     [Header("Weapons Has Cartegories")]
     public bool hasmelee;
@@ -344,6 +347,7 @@ public class weaponsystem : MonoBehaviour
         switch (weaponstate)
         {
             case 1:
+                UIWeaponIcon.sprite = hammericon;
                 shotguncrosshair.SetActive(false);
                 riflecrosshair.SetActive(false);
                 canusehammer = true;
@@ -378,6 +382,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (hasshootfar == true)
         {
+            UIWeaponIcon.sprite = tennisuziicon;
             shotguncrosshair.SetActive(false);
             riflecrosshair.SetActive(true);
             canusehammer = false;
@@ -392,6 +397,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (hasshootclose == true)
         {
+            UIWeaponIcon.sprite = shotgunicon;
             shotguncrosshair.SetActive(true);
             riflecrosshair.SetActive(false);
             canusebazooka = false;
@@ -406,6 +412,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (hasshootspecial == true)
         {
+            UIWeaponIcon.sprite = minigunicon;
             shotguncrosshair.SetActive(false);
             riflecrosshair.SetActive(false);
             canusehammer = false;
@@ -420,6 +427,7 @@ public class weaponsystem : MonoBehaviour
     {
         if (hasexplosion == true)
         {
+            UIWeaponIcon.sprite = bazookaicon;
             shotguncrosshair.SetActive(false);
             riflecrosshair.SetActive(false);
             canusebazooka = true;

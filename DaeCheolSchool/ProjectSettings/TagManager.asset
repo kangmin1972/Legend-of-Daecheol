@@ -38,8 +38,8 @@ TagManager:
   - enemyground
   - triggerforplayer
   - BulletImpactReal
-  - 
-  - 
+  - InterfaceUI
+  - PostUI
   - 
   - 
   - 

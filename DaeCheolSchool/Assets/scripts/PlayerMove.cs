@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Transform debugHitPointTransform;
     [SerializeField] private Transform hookshotTransform;
     private float _moveSpeed = 14f;
+    private float playerhpdivi;
     public float stamina = 1f;
     private float _gravity = 6f;
     private float _jumpSpeed = 1.2f;
@@ -32,6 +33,7 @@ public class PlayerMove : MonoBehaviour
     public ScreenShake ss;
     public Mouse cam;
     public TextMeshProUGUI PlayerHPUI;
+    public Image PlayerHPUIREAL;
 
     [Header("SoundFX")]
     public AudioSource footstep;
@@ -84,7 +86,7 @@ public class PlayerMove : MonoBehaviour
     {
         stamina = 0;
         PlayerHP = 100;
-        ignorethis = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
+        ignorethis = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal", "bulletimpact");
         state = State.Normal;
         hookshotTransform.gameObject.SetActive(false);
         _controller = GetComponent<CharacterController>();

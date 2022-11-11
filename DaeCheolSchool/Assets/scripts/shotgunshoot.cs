@@ -18,6 +18,8 @@ public class shotgunshoot : MonoBehaviour
     public GameObject shootPoint;
     public GameObject bullet;
     public int bulletint;
+    public GameObject SetDisable1;
+    public GameObject SetDisable2;
 
     public GameObject bulletparticle;
 
@@ -26,7 +28,7 @@ public class shotgunshoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal");
+        layer_mask = LayerMask.GetMask("post", "post2", "Player", "BulletImpactReal", "bulletimpact");
         canattack = true;
     }
 
