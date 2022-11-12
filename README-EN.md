@@ -16,6 +16,7 @@
 * Official Website https://legendofdaecheol.me/
 * Trailer https://www.youtube.com/watch?v=aGNMZE81wkg
 * Bug report & Idea ( inamanag@gmail.com / inamanag@naver.com )
+* Official Soundtrack https://daecheolgames.bandcamp.com/album/ost
 
 Legend of Daecheol is a stress relief game created to promote Daecheol Middle School, a middle school in South Korea.
 
