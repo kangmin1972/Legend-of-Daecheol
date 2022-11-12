@@ -11,8 +11,6 @@
 
 # Legend of Daecheol
 
-![image](https://user-images.githubusercontent.com/81474787/201460418-c3f170c5-bf31-41dc-8f7f-928efaa14cbf.png)
-
 * Official Website https://legendofdaecheol.me/
 * Trailer https://www.youtube.com/watch?v=aGNMZE81wkg
 * Bug report & Idea ( inamanag@gmail.com / inamanag@naver.com )
