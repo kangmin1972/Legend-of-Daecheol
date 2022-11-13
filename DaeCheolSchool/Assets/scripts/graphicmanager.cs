@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class graphicmanager : MonoBehaviour
 {
-    public GameObject cubeppp;
+    public PostProcessLayer cubeppp;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,13 @@ public class graphicmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startscreen.effectsset == 1)
+        if (Settings.effectsset == 1)
         {
-            cubeppp.SetActive(true);
+            cubeppp.enabled = true;
         } 
         else
         {
-            cubeppp.SetActive(false);
+            cubeppp.enabled = false;
         }
     }
 }

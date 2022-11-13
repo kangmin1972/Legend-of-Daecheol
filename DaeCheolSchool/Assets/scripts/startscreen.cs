@@ -36,6 +36,7 @@ public class startscreen : MonoBehaviour
     public GameObject creditscanvas;
 
     FullScreenMode screenMode;
+    public GameObject settingcanvas;
 
     int resoltuionnum;
 
@@ -46,6 +47,7 @@ public class startscreen : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        caninteract = true;
         GameLoad();
         StartCoroutine(startset());
 
@@ -54,7 +56,12 @@ public class startscreen : MonoBehaviour
 
     private void Update()
     {
-        switch(graphicset)
+        
+    }
+
+    void optiontext()
+    {
+        switch (graphicset)
         {
             case 1:
                 graphic.text = "그래픽 : 좋음";
@@ -70,7 +77,7 @@ public class startscreen : MonoBehaviour
                 break;
         }
 
-        switch(effectsset)
+        switch (effectsset)
         {
             case 1:
                 effect.text = "이펙트 : 켜짐";
@@ -112,132 +119,27 @@ public class startscreen : MonoBehaviour
                 break;
         }
     }
-    //찾아봐라ㅋㅋㅋ
-    public void startbutton()
-    {
-        if (caninteract == true)
-        {
-            moddesc.text = "";
-            modname.text = "";
-            buttonclick.Play();
-            normalcanvas.SetActive(false);
-            gamemodecanvas.SetActive(true);
-        }
-    }
-
-    public void storymode()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            gamemodecanvas.SetActive(false);
-            mapselectcanvas.SetActive(true);
-        }
-    }
-
-    public void map_school()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            fadeanim.Play();
-            StartCoroutine(startanimation());
-            caninteract = false;
-        }
-    }
-
-    public void hover_survival()
-    {
-        modname.text = "잠입 모드";
-        moddesc.text = "어두컴컴하고 무시무시한 학교에서 로봇과 적을 피하면서 물건을 파괴하는 모드입니다. 물건을 파괴하며 돈을 얻고, 그 돈으로 무기를 강화하세요. 적들 근처에서는 조용히 행동하세요!";
-        mapselect_modname.text = "- 잠입 모드 -";
-    }
-
-    public void hover_destory()
-    {
-        modname.text = "파괴 모드";
-        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 모든 무기가 열리며, 오로지 물건만 부수는 모드입니다.";
-        mapselect_modname.text = "- 파괴 모드 -";
-    }
-
-    public void hover_infinity()
-    {
-        modname.text = "관광 모드";
-        moddesc.text = "대철중학교를 구경해볼 수 있는 모드입니다. 특별한 안내원과 함께하세요!";
-        mapselect_modname.text = "- 관광 모드 -";
-    }
-
-    public void goback()
-    {
-        if(caninteract == true)
-        {
-            buttonclick.Play();
-            normalcanvas.SetActive(true);
-            gamemodecanvas.SetActive(false);
-        }
-    }
-
-    public void goback_mapselect()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            gamemodecanvas.SetActive(true);
-            mapselectcanvas.SetActive(false);
-        }
-    }
-
-    public void credits()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            creditscanvas.SetActive(true);
-            normalcanvas.SetActive(false);
-        }
-    }
-
-    public void goback_credits()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            normalcanvas.SetActive(true);
-            creditscanvas.SetActive(false);
-        }
-    }
-
-    public void exitgame()
-    {
-        if (caninteract == true)
-        {
-            buttonclick.Play();
-            Application.Quit();
-            
-            caninteract = false;
-        } 
-    }
 
     public void graphicmove()
     {
-            switch (graphicset)
-            {
-                case 1:
-                    graphicset = 2;
-                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
-                    PlayerPrefs.Save();
-                    break;
-                case 2:
-                    graphicset = 3;
-                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
-                    PlayerPrefs.Save();
-                    break;
-                case 3:
-                    graphicset = 1;
-                    PlayerPrefs.SetInt("GraphicSETed", graphicset);
-                    PlayerPrefs.Save();
-                    break;
-            }
+        switch (graphicset)
+        {
+            case 1:
+                graphicset = 2;
+                PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                PlayerPrefs.Save();
+                break;
+            case 2:
+                graphicset = 3;
+                PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                PlayerPrefs.Save();
+                break;
+            case 3:
+                graphicset = 1;
+                PlayerPrefs.SetInt("GraphicSETed", graphicset);
+                PlayerPrefs.Save();
+                break;
+        }
     }
 
     public void effectmove()
@@ -327,15 +229,117 @@ public class startscreen : MonoBehaviour
         iscrosshairon = crosshaired;
         isleavingpieces = leavedpiece;
     }
-
-    public void GameSettingMoveCamera()
+    //찾아봐라ㅋㅋㅋ
+    public void startbutton()
     {
         if (caninteract == true)
         {
-            anim.Play("cameramove3");
+            moddesc.text = "";
+            modname.text = "";
+            buttonclick.Play();
+            normalcanvas.SetActive(false);
+            gamemodecanvas.SetActive(true);
+        }
+    }
+
+    public void storymode()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            gamemodecanvas.SetActive(false);
+            mapselectcanvas.SetActive(true);
+        }
+    }
+
+    public void map_school()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            fadeanim.Play();
+            StartCoroutine(startanimation());
             caninteract = false;
         }
-        
+    }
+
+    public void hover_survival()
+    {
+        modname.text = "잠입 모드";
+        moddesc.text = "어두컴컴하고 무시무시한 학교에서 로봇과 적을 피하면서 물건을 파괴하는 모드입니다. 물건을 파괴하며 돈을 얻고, 그 돈으로 무기를 강화하세요. 적들 근처에서는 조용히 행동하세요!";
+        mapselect_modname.text = "- 잠입 모드 -";
+    }
+
+    public void hover_destory()
+    {
+        modname.text = "파괴 모드";
+        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 모든 무기가 열리며, 오로지 물건만 부수는 모드입니다.";
+        mapselect_modname.text = "- 파괴 모드 -";
+    }
+
+    public void hover_infinity()
+    {
+        modname.text = "관광 모드";
+        moddesc.text = "대철중학교를 구경해볼 수 있는 모드입니다. 특별한 안내원과 함께하세요!";
+        mapselect_modname.text = "- 관광 모드 -";
+    }
+
+    public void goback()
+    {
+        if(caninteract == true)
+        {
+            buttonclick.Play();
+            normalcanvas.SetActive(true);
+            gamemodecanvas.SetActive(false);
+        }
+    }
+
+    public void Settings()
+    {
+        buttonclick.Play();
+        settingcanvas.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void goback_mapselect()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            gamemodecanvas.SetActive(true);
+            mapselectcanvas.SetActive(false);
+        }
+    }
+
+    public void credits()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            creditscanvas.SetActive(true);
+            normalcanvas.SetActive(false);
+        }
+    }
+
+    public void goback_credits()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            normalcanvas.SetActive(true);
+            creditscanvas.SetActive(false);
+        }
+    }
+
+    public void exitgame()
+    {
+        if (caninteract == true)
+        {
+            buttonclick.Play();
+            Application.Quit();
+            
+            caninteract = false;
+        } 
     }
 
     public void GameSettingBackCamera()

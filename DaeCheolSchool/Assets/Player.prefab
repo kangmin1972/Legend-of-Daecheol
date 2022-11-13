@@ -45788,6 +45788,8 @@ GameObject:
   - component: {fileID: 1342850523792827552}
   - component: {fileID: 1342850523831336927}
   - component: {fileID: 1342850523831336924}
+  - component: {fileID: 8115877182766512115}
+  - component: {fileID: 3159484273234489699}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -45955,7 +45957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dd4198d9e960b40beffa0a09793061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeppp: {fileID: 8398648889687167126}
+  cubeppp: {fileID: 0}
 --- !u!114 &1342850523792827581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46074,6 +46076,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isdash: 0
+--- !u!114 &8115877182766512115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2586361697966586487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dd4198d9e960b40beffa0a09793061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeppp: {fileID: 1342850523795519218}
+--- !u!114 &3159484273234489699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2586361697966586487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5d7e3c90c5baf48bc188e1b467a9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2925907687388000465
 GameObject:
   m_ObjectHideFlags: 0
@@ -60916,15 +60943,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34fc5baaa8522e34180f35773f86ae41, type: 3}
---- !u!4 &2679236287914392770 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3614463613512144069, guid: 34fc5baaa8522e34180f35773f86ae41,
-    type: 3}
-  m_PrefabInstance: {fileID: 1659480482826315783}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1527736903996561632 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 158809242973122791, guid: 34fc5baaa8522e34180f35773f86ae41,
+--- !u!1 &3343183413166827128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4135139180563336831, guid: 34fc5baaa8522e34180f35773f86ae41,
     type: 3}
   m_PrefabInstance: {fileID: 1659480482826315783}
   m_PrefabAsset: {fileID: 0}
@@ -60940,9 +60961,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1659480482826315783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3343183413166827128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4135139180563336831, guid: 34fc5baaa8522e34180f35773f86ae41,
+--- !u!95 &1527736903996561632 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 158809242973122791, guid: 34fc5baaa8522e34180f35773f86ae41,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659480482826315783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2679236287914392770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3614463613512144069, guid: 34fc5baaa8522e34180f35773f86ae41,
     type: 3}
   m_PrefabInstance: {fileID: 1659480482826315783}
   m_PrefabAsset: {fileID: 0}
@@ -61503,15 +61530,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4500301231113577861}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1311903031727724722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3188716740236590391, guid: 84d197daa53522d469a619771100c108,
-    type: 3}
-  m_PrefabInstance: {fileID: 4500301231113577861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1837187687637041672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2813421933231925133, guid: 84d197daa53522d469a619771100c108,
+    type: 3}
+  m_PrefabInstance: {fileID: 4500301231113577861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311903031727724722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3188716740236590391, guid: 84d197daa53522d469a619771100c108,
     type: 3}
   m_PrefabInstance: {fileID: 4500301231113577861}
   m_PrefabAsset: {fileID: 0}
