@@ -17,6 +17,7 @@
 * 공식 사이트 https://legendofdaecheol.me/
 * 트레일러 영상 https://www.youtube.com/watch?v=aGNMZE81wkg
 * 버그 & 아이디어 제보 ( inamanag@gmail.com / inamanag@naver.com )
+* 공식 사운드트랙 https://daecheolgames.bandcamp.com/album/ost
 
 레전드 오브 대철은 대한민국의 중학교인 대철중학교를 홍보하기 위해 만들어진 스트레스 해소 게임입니다.
 

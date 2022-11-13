@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/81474787/137589013-eb316788-b6a2-4feb-836c-814033668fa8.png)
+![image](https://user-images.githubusercontent.com/81474787/201460391-ba867c12-4d48-4e5e-a371-14ee01446f39.png)
 
 [![](https://img.shields.io/badge/youtube-youtube-red.svg?logo=youtube)](https://www.youtube.com/channel/UCWrFvj14UJrPApqDN00-PGA)
 [![](https://img.shields.io/badge/youtube-2020_daecheol_promo-red.svg?logo=youtube)](https://www.youtube.com/watch?v=fJfXoC-QEIM)
@@ -11,11 +11,10 @@
 
 # Legend of Daecheol
 
-[![Video Label](https://user-images.githubusercontent.com/81474787/133871033-e401fd4e-6711-43b7-8bcd-dce5939ff22d.png)](https://www.youtube.com/watch?v=aGNMZE81wkg)
-
 * Official Website https://legendofdaecheol.me/
 * Trailer https://www.youtube.com/watch?v=aGNMZE81wkg
 * Bug report & Idea ( inamanag@gmail.com / inamanag@naver.com )
+* Official Soundtrack https://daecheolgames.bandcamp.com/album/ost
 
 Legend of Daecheol is a stress relief game created to promote Daecheol Middle School, a middle school in South Korea.
 
