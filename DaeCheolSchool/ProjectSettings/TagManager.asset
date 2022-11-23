@@ -17,6 +17,7 @@ TagManager:
   - ShutterShield
   - USE/monitor
   - PlayerWillDie
+  - BGMNone
   layers:
   - Default
   - TransparentFX

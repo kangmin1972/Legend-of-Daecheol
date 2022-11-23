@@ -7,6 +7,7 @@ public class musictrans : MonoBehaviour
     public AudioSource normal;
     public AudioSource combat;
     public static bool iscombat;
+    public static bool none = false;
     public static bool test = true;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,12 @@ public class musictrans : MonoBehaviour
             normal.volume += 0.01f;
             combat.volume -= 0.01f;
             test = true;
+        }
+
+        if (none == true)
+        {
+            normal.Stop();
+            combat.Stop();
         }
 
         if(MonsterSpawn.combating == true)

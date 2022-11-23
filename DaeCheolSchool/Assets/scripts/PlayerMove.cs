@@ -285,6 +285,11 @@ public class PlayerMove : MonoBehaviour
             hammerspawn.SetActive(true);
             fakehammer.SetActive(false);
         }
+
+        if (other.tag == "BGMNone")
+        {
+            musictrans.none = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)

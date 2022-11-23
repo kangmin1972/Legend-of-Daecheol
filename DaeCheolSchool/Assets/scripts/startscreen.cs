@@ -265,16 +265,16 @@ public class startscreen : MonoBehaviour
 
     public void hover_survival()
     {
-        modname.text = "잠입 모드";
+        modname.text = "파괴 모드";
         moddesc.text = "어두컴컴하고 무시무시한 학교에서 로봇과 적을 피하면서 물건을 파괴하는 모드입니다. 물건을 파괴하며 돈을 얻고, 그 돈으로 무기를 강화하세요. 적들 근처에서는 조용히 행동하세요!";
-        mapselect_modname.text = "- 잠입 모드 -";
+        mapselect_modname.text = "- 파괴 모드 -";
     }
 
     public void hover_destory()
     {
-        modname.text = "파괴 모드";
-        moddesc.text = "제한시간 내에 얼마나 많이 부술 수 있나요? 모든 무기가 열리며, 오로지 물건만 부수는 모드입니다.";
-        mapselect_modname.text = "- 파괴 모드 -";
+        modname.text = "청소 모드";
+        moddesc.text = "제한시간 내에 얼마나 많이 청소할 수 있나요? 여러 방해를 극복하고 더러워진 학교를 청소해보세요.";
+        mapselect_modname.text = "- 청소 모드 -";
     }
 
     public void hover_infinity()
