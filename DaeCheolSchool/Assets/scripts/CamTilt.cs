@@ -12,25 +12,27 @@ public class CamTilt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerMove_Tour.istouring == false)
+        {
+            // If _leftBtn key is hit, rotate Z axis of camera by _tiltAmount
+            if (Input.GetKeyDown(_leftBtn))
+            {
+                transform.Rotate(0, 0, _tiltAmount);
+            }
+            else if (Input.GetKeyUp(_leftBtn))
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
 
-        // If _leftBtn key is hit, rotate Z axis of camera by _tiltAmount
-        if (Input.GetKeyDown(_leftBtn))
-        {
-            transform.Rotate(0, 0, _tiltAmount);
-        }
-        else if (Input.GetKeyUp(_leftBtn))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-
-        // Same as above, but inverted values
-        if (Input.GetKeyDown(_rightBtn))
-        {
-            transform.Rotate(0, 0, -_tiltAmount);
-        }
-        else if (Input.GetKeyUp(_rightBtn))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            // Same as above, but inverted values
+            if (Input.GetKeyDown(_rightBtn))
+            {
+                transform.Rotate(0, 0, -_tiltAmount);
+            }
+            else if (Input.GetKeyUp(_rightBtn))
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 }

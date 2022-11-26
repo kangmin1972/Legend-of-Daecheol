@@ -100,6 +100,11 @@ public class PlayerMove : MonoBehaviour
         Flashlighting();
         PlayerHPUI.text = PlayerHP.ToString();
 
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PlayerMove_Tour.istouring = true;
+        }
+
         if (PlayerHP <= 0)
         {
             SceneManager.LoadScene(4);
@@ -108,22 +113,25 @@ public class PlayerMove : MonoBehaviour
 
     void stateswitch()
     {
-        switch (state)
+        if (PlayerMove_Tour.istouring == false)
         {
-            default:
-            case State.Normal:
-                playermoving();
-                Dash();
-                HandleDash();
-                HandleHookshotStart();
-                break;
-            case State.HookshotThrown:
-                HandleHookshotThrow();
-                playermoving();
-                break;
-            case State.HookshotFlyingPlayer:
-                HandleHookshotMovement();
-                break;
+            switch (state)
+            {
+                default:
+                case State.Normal:
+                    playermoving();
+                    Dash();
+                    HandleDash();
+                    HandleHookshotStart();
+                    break;
+                case State.HookshotThrown:
+                    HandleHookshotThrow();
+                    playermoving();
+                    break;
+                case State.HookshotFlyingPlayer:
+                    HandleHookshotMovement();
+                    break;
+            }
         }
     }
 

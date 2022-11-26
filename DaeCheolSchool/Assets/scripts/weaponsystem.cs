@@ -98,40 +98,56 @@ public class weaponsystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canchangeweapons == true)
+        if (InventorySystem.ItemMode == false)
         {
-            weaponselectfornumbers();
-            weaponselectforscroll();
+            if (canchangeweapons == true)
+            {
+                weaponselectfornumbers();
+                weaponselectforscroll();
+            }
+
+            if (PlayerMove_Tour.istouring == true)
+            {
+                canchangeweapons = false;
+            }
+            else
+            {
+                canchangeweapons = true;
+            }
+
+            itemcheck();
+
+            switch (weaponstate)
+            {
+                case 2:
+                    if (hasshootfar == false)
+                    {
+                        shootfaricon.sprite = none;
+                    }
+                    break;
+                case 3:
+                    if (hasshootclose == false)
+                    {
+                        shootcloseicon.sprite = none;
+                    }
+                    break;
+                case 4:
+                    if (hasshootspecial == false)
+                    {
+                        shootspecialicon.sprite = none;
+                    }
+                    break;
+                case 5:
+                    if (hasexplosion == false)
+                    {
+                        explosionicon.sprite = none;
+                    }
+                    break;
+            }
         }
-
-        itemcheck();
-
-        switch (weaponstate)
+        else
         {
-            case 2:
-                if (hasshootfar == false)
-                {
-                    shootfaricon.sprite = none;
-                }
-                break;
-            case 3:
-                if (hasshootclose == false)
-                {
-                    shootcloseicon.sprite = none;
-                }
-                break;
-            case 4:
-                if (hasshootspecial == false)
-                {
-                    shootspecialicon.sprite = none;
-                }
-                break;
-            case 5:
-                if (hasexplosion == false)
-                {
-                    explosionicon.sprite = none;
-                }
-                break;
+            weaponstate = 0;
         }
     }
 

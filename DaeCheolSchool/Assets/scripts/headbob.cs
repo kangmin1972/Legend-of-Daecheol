@@ -24,6 +24,12 @@ public class headbob : MonoBehaviour
 
     void Update()
     {
+        if (PlayerMove_Tour.istouring == true)
+        {
+            _frequency = 10;
+            _amplitude = 0.01f;
+        }
+
         if (!_enable) return;
 
         CheckMotion();
