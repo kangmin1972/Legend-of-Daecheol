@@ -32,11 +32,17 @@ public class InventorySystem : MonoBehaviour
                 case true:
                     ItemMode = false;
                     InventoryUI.SetActive(false);
+                    
                     break;
                 case false:
                     ItemMode = true;
                     InventoryUI.SetActive(true);
                     InterfaceUI.SetActive(false);
+                    weaponsystem.canusehammer = false;
+                    weaponsystem.canusetenniuzis = false;
+                    weaponsystem.canusebazooka = false;
+                    weaponsystem.canuseshotgun = false;
+                    weaponsystem.canuseminigun = false;
                     break;
             }
         }
