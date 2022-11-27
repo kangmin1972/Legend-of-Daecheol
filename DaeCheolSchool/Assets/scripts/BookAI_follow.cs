@@ -30,16 +30,7 @@ public class BookAI_follow : MonoBehaviour
 
     private void Update()
     {
-        playerinsightrange = Physics.CheckSphere(transform.position, sightrange, playerlayer);
-
-        if (!playerinsightrange)
-        {
-            MoveAround();
-        }
-        else
-        {
             ChasePlayer();
-        }
     }
 
     private void MoveAround()

@@ -70,6 +70,8 @@ public class InventorySystem : MonoBehaviour
             }
         }
 
+        itemselectforscroll();
+
         InventorySelect();
     }
 
@@ -101,6 +103,27 @@ public class InventorySystem : MonoBehaviour
                 Selected3.color = new Color32(255, 255, 255, 7);
                 Selected2.color = new Color32(255, 255, 255, 7);
                 break;
+        }
+    }
+
+    void itemselectforscroll()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            itemselectnumber += 1;
+            if (itemselectnumber > 4)
+            {
+                itemselectnumber = 1;
+            }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            itemselectnumber -= 1;
+            if (itemselectnumber < 1)
+            {
+                itemselectnumber = 4;
+            }
         }
     }
 }

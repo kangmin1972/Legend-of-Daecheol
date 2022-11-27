@@ -253,6 +253,7 @@ public class weaponsystem : MonoBehaviour
 
     void allweaponremove()
     {
+        UIWeaponIcon.sprite = none;
         canusehammer = false;
         canusetenniuzis = false;
         canusebazooka = false;
