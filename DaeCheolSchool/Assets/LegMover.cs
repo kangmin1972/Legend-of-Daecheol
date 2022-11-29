@@ -34,7 +34,7 @@ public class LegMover : MonoBehaviour
     {
         newposition = calculatepoint(steppingpoint.position);
 
-        if (Vector3.Distance(restingposition, newposition) > movedistance || moving && leggrounded)
+        if (Vector3.Distance(restingposition, newposition) > movedistance || moving == true && leggrounded == true)
         {
             Step(newposition);
         }
@@ -46,7 +46,7 @@ public class LegMover : MonoBehaviour
         Vector3 dir = position - raycastpoint.position;
         RaycastHit hit;
 
-        if(Physics.SphereCast(raycastpoint.position, 1f, dir, out hit, 5f, mask))
+        if (Physics.SphereCast(raycastpoint.position, 1f, dir, out hit, 5f, mask))
         {
             position = hit.point;
             leggrounded = true;
@@ -61,7 +61,7 @@ public class LegMover : MonoBehaviour
 
     public void Step(Vector3 position)
     {
-        if(currentmovevalue == movevalue)
+        if (currentmovevalue == movevalue)
         {
             leggrounded = false;
             hasmoved = false;
@@ -93,10 +93,17 @@ public class LegMover : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(reset());
     }
 
     public void UpdateIK()
     {
         target.position = restingposition;
+    }
+
+    IEnumerator reset()
+    {
+        yield return new WaitForSeconds(0.1f);
+        leggrounded = false;
     }
 }
