@@ -5,6 +5,7 @@ using UnityEngine;
 public class LegMover : MonoBehaviour
 {
     public Transform raycastpoint;
+    public ScreenShake screen;
     public Transform target;
     public Vector3 restingposition;
     public LayerMask mask;
@@ -63,6 +64,7 @@ public class LegMover : MonoBehaviour
     {
         if (currentmovevalue == movevalue)
         {
+            StartCoroutine(screen.Shake(.15f, .15f));
             leggrounded = false;
             hasmoved = false;
             moving = true;
