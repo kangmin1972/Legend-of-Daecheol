@@ -11,7 +11,6 @@ public class Dialogue : MonoBehaviour
     private State state;
 
     public NarratorAudio[] Scene1NA;
-    public int number;
 
     private enum State
     {
@@ -37,7 +36,7 @@ public class Dialogue : MonoBehaviour
             case State.None:
                 break;
             case State.Welcome:
-                Scene1();
+                StartCoroutine(Scene1());
                 break;
         }
     }
@@ -51,16 +50,13 @@ public class Dialogue : MonoBehaviour
         subtitles.text = clip.subtitle;
     }
 
-    void Scene1()
+    IEnumerator Scene1()
     {
-        int i = 0;
-        //state = State.None;
-        while (i == 2)
-        {
-            Talking(Scene1NA[i]);
-            if(!audiosr.isPlaying)
-            i += 1;
-            break;
-        }
+        state = State.None;
+        yield return new WaitForSeconds(1f);
+        Talking(Scene1NA[0]);
+        yield return new WaitForSeconds(2);
+        Talking(Scene1NA[1]);
+
     }
 }
