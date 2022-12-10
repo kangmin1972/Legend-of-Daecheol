@@ -147,7 +147,7 @@ public class PlayerMove : MonoBehaviour
 
         if (ishammerpowered == true)
         {
-            StartCoroutine(ss.Shake(.15f, .2f));
+            //StartCoroutine(ss.Shake(.15f, .2f));
             hammerhit.Play();
             ishammerpowered = false;
         }
