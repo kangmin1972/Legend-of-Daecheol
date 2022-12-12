@@ -442,7 +442,7 @@ public class PlayerMove : MonoBehaviour
         if (stamina <= 0.15f)
         {
             thing.Play();
-            hookshotsize -= 300 * Time.deltaTime;
+            hookshotsize -= 200 * Time.deltaTime;
         }
         else
         {
