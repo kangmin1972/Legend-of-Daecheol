@@ -51,7 +51,7 @@ public class MinigunSHoot : MonoBehaviour
             shootlight.SetActive(false);
             cooldownSpeed += Time.deltaTime * 90f;
 
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) && Pausescript.gamepaused == false)
             {
                 windup.Play();
                 readyanim = true;

@@ -55,8 +55,13 @@ public class Dialogue : MonoBehaviour
         state = State.None;
         yield return new WaitForSeconds(1f);
         Talking(Scene1NA[0]);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.6f);
         Talking(Scene1NA[1]);
-
+        yield return new WaitForSeconds(3.2f);
+        Talking(Scene1NA[2]);
+        yield return new WaitForSeconds(2.5f);
+        Talking(Scene1NA[3]);
+        yield return new WaitForSeconds(5.2f);
+        subtitles.text = "";
     }
 }

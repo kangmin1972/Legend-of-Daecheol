@@ -27,7 +27,7 @@ public class usinghammer : MonoBehaviour
         {
             hammer.SetActive(true);
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && Pausescript.gamepaused == false)
                 {
                     hammerd.Stop("weponsheadbob");
                     if (!hammerd.IsPlaying("HAMMER") && !hammerd.IsPlaying("hammer2") && !hammerd.IsPlaying("hammer3"))

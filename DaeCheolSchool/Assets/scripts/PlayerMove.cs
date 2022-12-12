@@ -113,7 +113,7 @@ public class PlayerMove : MonoBehaviour
 
     void stateswitch()
     {
-        if (PlayerMove_Tour.istouring == false)
+        if (PlayerMove_Tour.istouring == false && Pausescript.gamepaused == false)
         {
             switch (state)
             {
@@ -132,6 +132,19 @@ public class PlayerMove : MonoBehaviour
                     HandleHookshotMovement();
                     break;
             }
+        }
+        else
+        {
+            float x = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
+            float z = Input.GetAxis("Vertical");
+            Vector3 direction = transform.right * x + transform.forward * z;
+            _directionY -= _gravity * Time.deltaTime;
+
+            direction.y = _directionY;
+
+            direction += characterVelocityMomentum;
+
+            _controller.Move(direction * _moveSpeed * Time.deltaTime);
         }
     }
 
@@ -313,6 +326,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && (stamina >= 0.3f) && canaction == true)
         {
+            stamina -= 0.3f;
             dashsfx.Play();
             DashParticle();
             isdashing = true;
@@ -357,12 +371,10 @@ public class PlayerMove : MonoBehaviour
             {
                 if (movementVector.Equals(Vector3.zero))
                 {
-                    stamina -= 0.05f;
                     _controller.Move(transform.forward * 45f * Time.deltaTime);
                 }
                 else
                 {
-                    stamina -= 0.05f;
                     _controller.Move(movementVector.normalized * 45f * Time.deltaTime);
                 }
             }
@@ -389,15 +401,19 @@ public class PlayerMove : MonoBehaviour
     private void HandleHookshotThrow()
     {
         hookshotTransform.LookAt(hookshotPosition);
-
         float hookshotThrowSpeed = 200f;
         hookshotsize += hookshotThrowSpeed * Time.deltaTime;
         hookshotTransform.localScale = new Vector3(0.1f, 0.1f, hookshotsize);
 
-        if(hookshotsize >= Vector3.Distance(transform.position, hookshotPosition))
+        if (hookshotsize >= Vector3.Distance(transform.position, hookshotPosition))
         {
             state = State.HookshotFlyingPlayer;
             hookfinish.Play();
+        }
+
+        if (stamina <= 0.15f)
+        {
+            StopHookShot();
         }
     }
 
@@ -405,8 +421,8 @@ public class PlayerMove : MonoBehaviour
     {
         hookshotTransform.LookAt(hookshotPosition);
         Vector3 hookshotDir = (hookshotPosition - transform.position).normalized;
-        float hookshotSpeedMin = 40f;
-        float hookshotSpeedMax = 60f;
+        float hookshotSpeedMin = 30f;
+        float hookshotSpeedMax = 40f;
         float hookshotSpeed = Mathf.Clamp(Vector3.Distance(transform.position, hookshotPosition), hookshotSpeedMin, hookshotSpeedMax);
         float hookshotSpeedMultiplier = 2f;
 
@@ -420,7 +436,18 @@ public class PlayerMove : MonoBehaviour
         {
             StopHookShot();
         }
+        staminabar.fillAmount = stamina;
         _controller.Move(hookshotDir * hookshotSpeed * hookshotSpeedMultiplier * Time.deltaTime);
+
+        if (stamina <= 0.15f)
+        {
+            thing.Play();
+            hookshotsize -= 300 * Time.deltaTime;
+        }
+        else
+        {
+            stamina -= 0.015f;
+        }
 
         float reachedHookshotPositionDistance = 2f;
         if(Vector3.Distance(transform.position, hookshotPosition) < reachedHookshotPositionDistance)

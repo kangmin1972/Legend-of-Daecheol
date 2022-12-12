@@ -52,7 +52,7 @@ public class bazookashoot : MonoBehaviour
             bazooka.SetActive(true);
             
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && Pausescript.gamepaused == false)
             {
                 accuracy += Time.deltaTime * 4f;
                 if (Rockets > 0)

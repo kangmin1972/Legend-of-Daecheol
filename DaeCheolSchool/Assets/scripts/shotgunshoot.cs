@@ -38,7 +38,7 @@ public class shotgunshoot : MonoBehaviour
         if (weaponsystem.canuseshotgun == true)
         {
             shotgunmodel.SetActive(true);
-            if (Input.GetMouseButtonDown(0) && canattack == true)
+            if (Input.GetMouseButtonDown(0) && canattack == true && Pausescript.gamepaused == false)
             {
                 shotgunshake.Stop();
                 Shoot();

@@ -57,7 +57,7 @@ public class gunshoot : MonoBehaviour
             tenniuzi.SetActive(true);
             cooldownSpeed += Time.deltaTime * 90f;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && Pausescript.gamepaused == false)
             {
                 accuracy += Time.deltaTime * 4f;
                 if (bullets > 0)
