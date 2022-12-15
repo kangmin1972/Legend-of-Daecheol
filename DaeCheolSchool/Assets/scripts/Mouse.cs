@@ -16,7 +16,7 @@ public class Mouse : MonoBehaviour
 
     public Transform cameraTransform;
 
-    public float camerasensitivity;
+    public static float camerasensitivity;
 
     Vector2 lookInput;
     float cameraPitch;

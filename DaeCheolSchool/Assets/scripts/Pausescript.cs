@@ -8,6 +8,7 @@ public class Pausescript : MonoBehaviour
     public static bool gamepaused = false;
     public GameObject pauseMenuUI;
     public Camera pcamera;
+    public GameObject optioncanvas;
 
     // Update is called once per frame
     void Update()
@@ -16,7 +17,7 @@ public class Pausescript : MonoBehaviour
         {
             if(gamepaused)
             {
-                Resume();
+                //Resume();
             }
             else
             {
@@ -55,6 +56,12 @@ public class Pausescript : MonoBehaviour
         {
             a.Pause();
         }
+    }
+
+    public void Options()
+    {
+        pauseMenuUI.SetActive(false);
+        optioncanvas.SetActive(true);
     }
 
     public void LoadMenu()
