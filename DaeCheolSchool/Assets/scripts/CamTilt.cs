@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CamTilt : MonoBehaviour
 {
-
+    public static bool isCamTilt = true;
     //Editor variables, you can customize these
     public float _tiltAmount = 5;
     public KeyCode _leftBtn = KeyCode.A; //A is default
@@ -12,7 +12,7 @@ public class CamTilt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerMove_Tour.istouring == false)
+        if (PlayerMove_Tour.istouring == false && isCamTilt == true)
         {
             // If _leftBtn key is hit, rotate Z axis of camera by _tiltAmount
             if (Input.GetKeyDown(_leftBtn))

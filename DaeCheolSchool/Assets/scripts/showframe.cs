@@ -9,10 +9,24 @@ public class showframe : MonoBehaviour
     public float timer, refresh, avgFramerate;
     public string display = "{0} FPS";
     public TextMeshProUGUI m_Text;
+    public GameObject go_text;
+    public static bool isShowingFrame = true;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(framerate());
+    }
+
+    private void Update()
+    {
+        if (isShowingFrame == true)
+        {
+            go_text.SetActive(true);
+        }
+        else
+        {
+            go_text.SetActive(false);
+        }
     }
 
     // Update is called once per frame

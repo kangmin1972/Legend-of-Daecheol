@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour
 {
     public Camera MainCamera;
-    public Toggle ScreenShake;
+    public Toggle ScreenShake1;
     public Toggle Headbob;
     public Toggle ScreenTilt;
     public Toggle SeasonalEvent;
@@ -39,17 +39,11 @@ public class Options : MonoBehaviour
 
     void LoadData()
     {
-        if (!PlayerPrefs.HasKey("CameraSensiti") || !PlayerPrefs.HasKey("FOV"))
+        if (!PlayerPrefs.HasKey("CameraSensiti") || !PlayerPrefs.HasKey("FOV") || !PlayerPrefs.HasKey("ScreenShakeValue") || !PlayerPrefs.HasKey("HeadBobValue") || !PlayerPrefs.HasKey("CamTiltValue") || !PlayerPrefs.HasKey("FrameShowValue"))
             return;
         CameraSen.value = PlayerPrefs.GetFloat("CameraSensiti");
         FOV.value = PlayerPrefs.GetFloat("FOV");
-    }
-
-    // Update is called once per frame
-    void SaveData()
-    {
-        PlayerPrefs.SetFloat("CameraSensiti", Mouse.mouseSpeed);
-        PlayerPrefs.SetFloat("FOV", MainCamera.fieldOfView);
+        GeneralSavings();
     }
 
     public void SetCameraSen(float volume)
@@ -62,6 +56,106 @@ public class Options : MonoBehaviour
     {
         MainCamera.fieldOfView = volume;
         PlayerPrefs.SetFloat("FOV", MainCamera.fieldOfView);
+    }
+
+    public void SetScreenShake(bool value)
+    {
+        ScreenShake.isScreenShakeon = value;
+
+        switch(value)
+        {
+            case true:
+                PlayerPrefs.SetInt("ScreenShakeValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("ScreenShakeValue", 0);
+                break;
+        }
+    }
+
+    public void SetHeadbob(bool value)
+    {
+        headbob.isHeadbobOn = value;
+
+        switch (value)
+        {
+            case true:
+                PlayerPrefs.SetInt("HeadBobValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("HeadBobValue", 0);
+                break;
+        }
+    }
+
+    public void SetCamTilt(bool value)
+    {
+        CamTilt.isCamTilt = value;
+
+        switch (value)
+        {
+            case true:
+                PlayerPrefs.SetInt("CamTiltValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("CamTiltValue", 0);
+                break;
+        }
+    }
+
+    public void SetShowFrame(bool value)
+    {
+        showframe.isShowingFrame = value;
+
+        switch (value)
+        {
+            case true:
+                PlayerPrefs.SetInt("FrameShowValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("FrameShowValue", 0);
+                break;
+        }
+    }
+
+    void GeneralSavings()
+    {
+        switch (PlayerPrefs.GetInt("ScreenShakeValue"))
+        {
+            case 1:
+                ScreenShake1.isOn = true;
+                break;
+            case 0:
+                ScreenShake1.isOn = false;
+                break;
+        }
+        switch (PlayerPrefs.GetInt("HeadBobValue"))
+        {
+            case 1:
+                Headbob.isOn = true;
+                break;
+            case 0:
+                Headbob.isOn = false;
+                break;
+        }
+        switch (PlayerPrefs.GetInt("CamTiltValue"))
+        {
+            case 1:
+                ScreenTilt.isOn = true;
+                break;
+            case 0:
+                ScreenTilt.isOn = false;
+                break;
+        }
+        switch (PlayerPrefs.GetInt("FrameShowValue"))
+        {
+            case 1:
+                ShowFPS.isOn = true;
+                break;
+            case 0:
+                ShowFPS.isOn = false;
+                break;
+        }
     }
 
     public void QuitSettings()

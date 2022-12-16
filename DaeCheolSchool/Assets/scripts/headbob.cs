@@ -12,6 +12,7 @@ public class headbob : MonoBehaviour
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Transform _cameraHolder = null;
 
+    public static bool isHeadbobOn = true;
     private float _toggleSpeed = 3.0f;
     private Vector3 _startPos;
     private CharacterController _controller;
@@ -24,16 +25,19 @@ public class headbob : MonoBehaviour
 
     void Update()
     {
-        if (PlayerMove_Tour.istouring == true)
+        if (isHeadbobOn == true)
         {
-            _frequency = 10;
-            _amplitude = 0.01f;
+            if (PlayerMove_Tour.istouring == true)
+            {
+                _frequency = 10;
+                _amplitude = 0.01f;
+            }
+
+            if (!_enable) return;
+
+            CheckMotion();
+            ResetPosition();
         }
-
-        if (!_enable) return;
-
-        CheckMotion();
-        ResetPosition();
     }
 
     private void CheckMotion()
