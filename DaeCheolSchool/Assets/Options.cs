@@ -55,11 +55,13 @@ public class Options : MonoBehaviour
     public void SetCameraSen(float volume)
     {
         Mouse.mouseSpeed = volume;
+        PlayerPrefs.SetFloat("CameraSensiti", Mouse.mouseSpeed);
     }
 
     public void SetFOVCamera(float volume)
     {
         MainCamera.fieldOfView = volume;
+        PlayerPrefs.SetFloat("FOV", MainCamera.fieldOfView);
     }
 
     public void QuitSettings()
