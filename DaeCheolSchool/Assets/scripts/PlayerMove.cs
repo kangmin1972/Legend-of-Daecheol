@@ -144,7 +144,7 @@ public class PlayerMove : MonoBehaviour
 
             direction += characterVelocityMomentum;
 
-            _controller.Move(direction * _moveSpeed * Time.deltaTime);
+            _controller.Move(direction * 0 * Time.deltaTime);
         }
     }
 

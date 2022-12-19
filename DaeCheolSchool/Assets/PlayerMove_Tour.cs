@@ -56,11 +56,11 @@ public class PlayerMove_Tour : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                _moveSpeed = 13f;
+                _moveSpeed = 8f;
             }
             else
             {
-                _moveSpeed = 8f;
+                _moveSpeed = 4f;
             }
 
             _directionY -= _gravity * Time.deltaTime;
