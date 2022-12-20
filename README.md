@@ -12,10 +12,10 @@
 ![GitHub](https://img.shields.io/github/license/kangmin1972/Legend-of-Daecheol)
 
 # 레전드 오브 대철 (대철의 전설)
-[![Video Label](https://user-images.githubusercontent.com/81474787/181028760-372cecd6-8e53-457a-81ba-c66deae4a462.png)](https://www.youtube.com/watch?v=aGNMZE81wkg)
+[![Video Label](https://user-images.githubusercontent.com/81474787/181028760-372cecd6-8e53-457a-81ba-c66deae4a462.png)](https://www.youtube.com/watch?v=S47jWgxzj6Y)
 
 * 공식 사이트 https://legendofdaecheol.me/
-* 트레일러 영상 https://www.youtube.com/watch?v=aGNMZE81wkg
+* 트레일러 영상 https://www.youtube.com/watch?v=S47jWgxzj6Y
 * 버그 & 아이디어 제보 ( inamanag@gmail.com / inamanag@naver.com )
 * 공식 사운드트랙 https://daecheolgames.bandcamp.com/album/ost
 
