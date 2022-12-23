@@ -28,6 +28,7 @@ public class Pausescript : MonoBehaviour
 
     public void Resume()
     {
+        weaponsystem.canchangeweapons = true;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         pcamera.GetComponent<Mouse>().enabled = true;
@@ -44,6 +45,7 @@ public class Pausescript : MonoBehaviour
 
     public void Pause()
     {
+        weaponsystem.canchangeweapons = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         pcamera.GetComponent<Mouse>().enabled = false;

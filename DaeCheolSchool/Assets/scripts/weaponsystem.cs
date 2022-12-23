@@ -106,15 +106,6 @@ public class weaponsystem : MonoBehaviour
                 weaponselectforscroll();
             }
 
-            if (PlayerMove_Tour.istouring == true)
-            {
-                canchangeweapons = false;
-            }
-            else
-            {
-                canchangeweapons = true;
-            }
-
             itemcheck();
 
             switch (weaponstate)

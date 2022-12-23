@@ -18,6 +18,7 @@ TagManager:
   - USE/monitor
   - PlayerWillDie
   - BGMNone
+  - EXPLOSION
   layers:
   - Default
   - TransparentFX

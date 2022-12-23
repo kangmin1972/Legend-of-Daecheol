@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     bool jumped;
     public static int PlayerHP;
     public bool canaction = true;
+    public static bool damaged = false;
 
     [Header("UI / Screen System")]
     public Image staminabar;
@@ -34,6 +35,7 @@ public class PlayerMove : MonoBehaviour
     public Mouse cam;
     public TextMeshProUGUI PlayerHPUI;
     public Image PlayerHPUIREAL;
+    public Animation ithurts;
 
     [Header("SoundFX")]
     public AudioSource footstep;
@@ -44,6 +46,7 @@ public class PlayerMove : MonoBehaviour
     public AudioSource thing;
     public AudioSource dashsfx;
     public AudioSource flashlightsfx;
+    public AudioSource hurt;
 
     [Header("Vector")]
     public Vector3 movementVector = Vector3.zero;
@@ -99,6 +102,14 @@ public class PlayerMove : MonoBehaviour
         stateswitch();
         Flashlighting();
         PlayerHPUI.text = PlayerHP.ToString();
+
+        if (damaged == true)
+        {
+            hurt.Play();
+            ithurts.Play();
+            StartCoroutine(ss.Shake(.1f, .1f));
+            damaged = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -236,7 +247,7 @@ public class PlayerMove : MonoBehaviour
 
             if(stamina < 1)
             {
-                stamina += 0.005f;
+                stamina += 0.3f * Time.deltaTime;
             }
 
             staminabar.fillAmount = stamina;
@@ -311,6 +322,14 @@ public class PlayerMove : MonoBehaviour
         {
             musictrans.none = true;
         }
+
+        if (other.tag == "EXPLOSION")
+        {
+            damaged = true;
+            PlayerHP -= 1;
+            _directionY = 1.4f;
+            _moveSpeed = 17f;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -326,7 +345,6 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && (stamina >= 0.3f) && canaction == true)
         {
-            stamina -= 0.3f;
             dashsfx.Play();
             DashParticle();
             isdashing = true;
@@ -371,10 +389,12 @@ public class PlayerMove : MonoBehaviour
             {
                 if (movementVector.Equals(Vector3.zero))
                 {
+                    stamina -= 3.5f * Time.deltaTime;
                     _controller.Move(transform.forward * 45f * Time.deltaTime);
                 }
                 else
                 {
+                    stamina -= 3.5f * Time.deltaTime;
                     _controller.Move(movementVector.normalized * 45f * Time.deltaTime);
                 }
             }
@@ -446,7 +466,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            stamina -= 0.015f;
+            stamina -= 0.75f * Time.deltaTime;
         }
 
         float reachedHookshotPositionDistance = 2f;

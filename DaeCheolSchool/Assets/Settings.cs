@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Settings : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class Settings : MonoBehaviour
     public AudioSource buttonclick;
     public Animation fadeanim;
 
+    public TMP_Dropdown resolutionDropdown;
+    List<Resolution> resolutions = new List<Resolution>();
+    int resolutionNum;
+
+    public PostProcessVolume volume;
+
     public GameObject General;
     public GameObject Graphic;
 
@@ -33,9 +40,31 @@ public class Settings : MonoBehaviour
 
     int resoltuionnum;
 
-    List<Resolution> resolutions = new List<Resolution>();
-
     public Animation settings;
+
+    private void Start()
+    {
+        InitUI();
+    }
+
+    void InitUI()
+    {
+        resolutions.AddRange(Screen.resolutions);
+        resolutionDropdown.options.Clear();
+
+        foreach (Resolution item in resolutions)
+        {
+            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
+            option.text = item.width + "x" + item.height + "" + item.refreshRate + "hz";
+            resolutionDropdown.options.Add(option);
+        }
+        resolutionDropdown.RefreshShownValue();
+    }
+
+    public void DropboxOptionChange(int x)
+    {
+        resolutionNum = x;
+    }
 
     void Update()
     {

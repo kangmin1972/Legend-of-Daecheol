@@ -6,6 +6,17 @@ using UnityEngine.Rendering.PostProcessing;
 public class graphicmanager : MonoBehaviour
 {
     public PostProcessLayer cubeppp;
+    public PostProcessVolume volume;
+    Bloom bloom;
+    DepthOfField dof;
+    ColorGrading cg;
+    AmbientOcclusion ao;
+    MotionBlur mb;
+    public static bool isbloom;
+    public static bool isdepthoffield;
+    public static bool iscolorgrading;
+    public static bool isambientocculusion;
+    public static bool ismotionblur;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +26,6 @@ public class graphicmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Settings.effectsset == 1)
-        {
-            cubeppp.enabled = true;
-        } 
-        else
-        {
-            cubeppp.enabled = false;
-        }
+        
     }
 }

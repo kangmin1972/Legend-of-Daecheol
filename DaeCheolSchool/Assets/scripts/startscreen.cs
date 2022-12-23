@@ -48,7 +48,6 @@ public class startscreen : MonoBehaviour
     private void Start()
     {
         caninteract = true;
-        GameLoad();
         StartCoroutine(startset());
 
 
@@ -210,25 +209,6 @@ public class startscreen : MonoBehaviour
         }
     }
 
-
-    public void GameLoad()
-    {
-        if (!PlayerPrefs.HasKey("GraphicSETed") || !PlayerPrefs.HasKey("EffectSETed") || !PlayerPrefs.HasKey("ScreenSETed") || !PlayerPrefs.HasKey("CrosshairSETed") || !PlayerPrefs.HasKey("LeavingSETed"))
-            return;
-
-        int graphiced = PlayerPrefs.GetInt("GraphicSETed");
-        int effected = PlayerPrefs.GetInt("EffectSETed");
-        int screened = PlayerPrefs.GetInt("ScreenSETed", isfullscreen);
-        int crosshaired = PlayerPrefs.GetInt("CrosshairSETed");
-        int leavedpiece = PlayerPrefs.GetInt("LeavingSETed");
-
-
-        graphicset = graphiced;
-        effectsset = effected;
-        isfullscreen = screened;
-        iscrosshairon = crosshaired;
-        isleavingpieces = leavedpiece;
-    }
     //찾아봐라ㅋㅋㅋ
     public void startbutton()
     {

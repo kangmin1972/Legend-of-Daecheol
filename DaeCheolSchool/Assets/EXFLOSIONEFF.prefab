@@ -19596,7 +19596,7 @@ GameObject:
   - component: {fileID: 7778066662403255250}
   m_Layer: 10
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: EXPLOSION
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
