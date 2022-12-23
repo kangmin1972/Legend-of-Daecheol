@@ -323,7 +323,7 @@ public class PlayerMove : MonoBehaviour
             musictrans.none = true;
         }
 
-        if (other.tag == "EXPLOSION")
+        if (other.tag == "EXPLOSION" && damaged == false)
         {
             damaged = true;
             PlayerHP -= 1;
@@ -339,6 +339,7 @@ public class PlayerMove : MonoBehaviour
             PlayerHP -= 5;
         }
     }
+
 
     void HandleDash()
     {

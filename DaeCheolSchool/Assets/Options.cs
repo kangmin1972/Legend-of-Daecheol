@@ -42,8 +42,10 @@ public class Options : MonoBehaviour
     public Slider FOV;
     public Slider MusicSlider;
     public Slider SFXSlider;
+    public Slider MasterSlider;
 
     public AudioMixer musicmixer;
+    public AudioMixer SFXMixer;
 
     public GameObject opcanvas;
     public GameObject pausecanvas;
@@ -95,7 +97,18 @@ public class Options : MonoBehaviour
         
     }
 
-    public void SetVolume (float volume)
+    public void SetMasterVolume(float volume)
+    {
+        var dbVolume = Mathf.Log10(volume) * 20;
+        if (volume == 0.0f)
+        {
+            dbVolume = -80.0f;
+        }
+        musicmixer.SetFloat("VolumeMaster", dbVolume);
+        PlayerPrefs.SetFloat("MSTVolSet", volume);
+    }
+
+    public void SetMusicVolume (float volume)
     {
         var dbVolume = Mathf.Log10(volume) * 20;
         if (volume == 0.0f)
@@ -103,6 +116,18 @@ public class Options : MonoBehaviour
             dbVolume = -80.0f;
         }
         musicmixer.SetFloat("VolumeMusic", dbVolume);
+        PlayerPrefs.SetFloat("MusicVolSet", volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        var dbVolume = Mathf.Log10(volume) * 20;
+        if (volume == 0.0f)
+        {
+            dbVolume = -80.0f;
+        }
+        musicmixer.SetFloat("VolumeSFX", dbVolume);
+        PlayerPrefs.SetFloat("SFXVolSet", volume);
     }
 
     void LoadData()
@@ -117,6 +142,7 @@ public class Options : MonoBehaviour
         }
         GeneralSavings();
         GraphicSavings();
+        AudioSavings();
     }
 
     public void SetCameraSen(float volume)
@@ -384,6 +410,22 @@ public class Options : MonoBehaviour
                     isvsync.isOn = false;
                     break;
             }
+        }
+    }
+
+    void AudioSavings()
+    {
+        if (PlayerPrefs.HasKey("MusicVolSet"))
+        {
+            MusicSlider.value = PlayerPrefs.GetFloat("MusicVolSet");
+        }
+        if (PlayerPrefs.HasKey("SFXVolSet"))
+        {
+            SFXSlider.value = PlayerPrefs.GetFloat("SFXVolSet");
+        }
+        if (PlayerPrefs.HasKey("MSTVolSet"))
+        {
+            MasterSlider.value = PlayerPrefs.GetFloat("MSTVolSet");
         }
     }
 

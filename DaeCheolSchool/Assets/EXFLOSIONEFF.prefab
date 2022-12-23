@@ -9717,7 +9717,8 @@ AudioSource:
   m_GameObject: {fileID: 4196011569680359264}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4516417203809160293, guid: 88a2c323d969fa346a2e230a918f2f85,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4beb6e8855a73c047b56ada24a74f035, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.804
@@ -19594,6 +19595,8 @@ GameObject:
   - component: {fileID: 5123641401608956484}
   - component: {fileID: 6750976550922018373}
   - component: {fileID: 7778066662403255250}
+  - component: {fileID: 7058858299077013548}
+  - component: {fileID: 6824362350997202817}
   m_Layer: 10
   m_Name: Sphere (1)
   m_TagString: EXPLOSION
@@ -19664,6 +19667,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7058858299077013548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051455217563576952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510a2f98e5411f4cb482a12facc840c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &6824362350997202817
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051455217563576952}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6117396879905704499
 GameObject:
   m_ObjectHideFlags: 0
