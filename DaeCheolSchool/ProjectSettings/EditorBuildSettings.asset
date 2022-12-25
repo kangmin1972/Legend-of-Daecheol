@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewGame.unity
     guid: 50955dadfe5bf154aa66de7f8bb8a642
+  - enabled: 1
+    path: Assets/Scenes/WARNING.unity
+    guid: 4aca457e1de1fa641a3b86dd48abcf49
   m_configObjects: {}

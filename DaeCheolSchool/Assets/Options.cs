@@ -14,6 +14,7 @@ public class Options : MonoBehaviour
     public Toggle ScreenTilt;
     public Toggle SeasonalEvent;
     public Toggle ShowFPS;
+    public Toggle leavepiece;
 
     public Toggle isbloom;
     public Toggle isdepthoffield;
@@ -46,6 +47,7 @@ public class Options : MonoBehaviour
 
     public AudioMixer musicmixer;
     public AudioMixer SFXMixer;
+    public AudioSource buttonclick;
 
     public GameObject opcanvas;
     public GameObject pausecanvas;
@@ -63,8 +65,9 @@ public class Options : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buttonclick.Play();
         LoadData();
-        InitUI();
+        //InitUI();
     }
 
     void InitUI()
@@ -99,6 +102,7 @@ public class Options : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
+        buttonclick.Play();
         var dbVolume = Mathf.Log10(volume) * 20;
         if (volume == 0.0f)
         {
@@ -110,6 +114,7 @@ public class Options : MonoBehaviour
 
     public void SetMusicVolume (float volume)
     {
+        buttonclick.Play();
         var dbVolume = Mathf.Log10(volume) * 20;
         if (volume == 0.0f)
         {
@@ -121,6 +126,7 @@ public class Options : MonoBehaviour
 
     public void SetSFXVolume(float volume)
     {
+        buttonclick.Play();
         var dbVolume = Mathf.Log10(volume) * 20;
         if (volume == 0.0f)
         {
@@ -147,18 +153,21 @@ public class Options : MonoBehaviour
 
     public void SetCameraSen(float volume)
     {
+        buttonclick.Play();
         Mouse.mouseSpeed = volume;
         PlayerPrefs.SetFloat("CameraSensiti", Mouse.mouseSpeed);
     }
 
     public void SetFOVCamera(float volume)
     {
+        buttonclick.Play();
         MainCamera.fieldOfView = volume;
         PlayerPrefs.SetFloat("FOV", MainCamera.fieldOfView);
     }
 
     public void SetScreenShake(bool value)
     {
+        buttonclick.Play();
         ScreenShake.isScreenShakeon = value;
 
         switch(value)
@@ -174,6 +183,7 @@ public class Options : MonoBehaviour
 
     public void SetHeadbob(bool value)
     {
+        buttonclick.Play();
         headbob.isHeadbobOn = value;
 
         switch (value)
@@ -189,6 +199,7 @@ public class Options : MonoBehaviour
 
     public void SetCamTilt(bool value)
     {
+        buttonclick.Play();
         CamTilt.isCamTilt = value;
 
         switch (value)
@@ -204,6 +215,7 @@ public class Options : MonoBehaviour
 
     public void SetShowFrame(bool value)
     {
+        buttonclick.Play();
         showframe.isShowingFrame = value;
 
         switch (value)
@@ -217,8 +229,25 @@ public class Options : MonoBehaviour
         }
     }
 
+    public void SetLeavePiece(bool value)
+    {
+        buttonclick.Play();
+        destoryhehe.leavingpieces = value;
+
+        switch (value)
+        {
+            case true:
+                PlayerPrefs.SetInt("LeavePieceValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("LeavePieceValue", 0);
+                break;
+        }
+    }
+
     public void SetBloom(bool value)
     {
+        buttonclick.Play();
         volume.profile.TryGetSettings(out bloom);
         bloom.active = value;
 
@@ -235,6 +264,7 @@ public class Options : MonoBehaviour
 
     public void SetCG(bool value)
     {
+        buttonclick.Play();
         volume.profile.TryGetSettings(out cg);
         cg.active = value;
 
@@ -251,6 +281,7 @@ public class Options : MonoBehaviour
 
     public void SetDOF(bool value)
     {
+        buttonclick.Play();
         volume.profile.TryGetSettings(out dof);
         dof.active = value;
 
@@ -267,6 +298,7 @@ public class Options : MonoBehaviour
 
     public void SetAO(bool value)
     {
+        buttonclick.Play();
         volume.profile.TryGetSettings(out ao);
         ao.active = value;
 
@@ -283,7 +315,7 @@ public class Options : MonoBehaviour
 
     public void SetVsync(bool value)
     {
-
+        buttonclick.Play();
         switch (value)
         {
             case true:
@@ -344,6 +376,18 @@ public class Options : MonoBehaviour
                     break;
                 case 0:
                     ShowFPS.isOn = false;
+                    break;
+            }
+        }
+        if (PlayerPrefs.HasKey("LeavePieceValue"))
+        {
+            switch (PlayerPrefs.GetInt("LeavePieceValue"))
+            {
+                case 1:
+                    leavepiece.isOn = true;
+                    break;
+                case 0:
+                    leavepiece.isOn = false;
                     break;
             }
         }
@@ -431,30 +475,35 @@ public class Options : MonoBehaviour
 
     public void QuitSettings()
     {
+        buttonclick.Play();
         opcanvas.SetActive(false);
         pausecanvas.SetActive(true);
     }
 
     public void General()
     {
+        buttonclick.Play();
         normal.SetActive(false);
         general.SetActive(true);
     }
 
     public void graphics()
     {
+        buttonclick.Play();
         normal.SetActive(false);
         graphic.SetActive(true);
     }
 
     public void sound()
     {
+        buttonclick.Play();
         normal.SetActive(false);
         audio1.SetActive(true);
     }
 
     public void SettijngTitle()
     {
+        buttonclick.Play();
         normal.SetActive(true);
         general.SetActive(false);
         graphic.SetActive(false);

@@ -30,7 +30,7 @@ public class headbob : MonoBehaviour
             if (PlayerMove_Tour.istouring == true)
             {
                 _frequency = 10;
-                _amplitude = 0.01f;
+                _amplitude = 0.005f;
             }
 
             if (!_enable) return;

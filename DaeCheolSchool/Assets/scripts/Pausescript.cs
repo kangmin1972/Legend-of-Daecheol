@@ -9,6 +9,8 @@ public class Pausescript : MonoBehaviour
     public GameObject pauseMenuUI;
     public Camera pcamera;
     public GameObject optioncanvas;
+    public AudioSource buttonclick;
+    public AudioSource pausemusic;
 
     // Update is called once per frame
     void Update()
@@ -28,6 +30,7 @@ public class Pausescript : MonoBehaviour
 
     public void Resume()
     {
+        buttonclick.Play();
         weaponsystem.canchangeweapons = true;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -41,10 +44,12 @@ public class Pausescript : MonoBehaviour
         {
             a.UnPause();
         }
+        pausemusic.Stop();
     }
 
     public void Pause()
     {
+        buttonclick.Play();
         weaponsystem.canchangeweapons = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -58,10 +63,12 @@ public class Pausescript : MonoBehaviour
         {
             a.Pause();
         }
+        pausemusic.Play();
     }
 
     public void Options()
     {
+        buttonclick.Play();
         pauseMenuUI.SetActive(false);
         optioncanvas.SetActive(true);
     }
