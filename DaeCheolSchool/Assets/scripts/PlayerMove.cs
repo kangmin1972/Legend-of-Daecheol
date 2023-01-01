@@ -114,6 +114,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             PlayerMove_Tour.istouring = true;
+            weaponsystem.canchangeweapons = false;
         }
 
         if (PlayerHP <= 0)

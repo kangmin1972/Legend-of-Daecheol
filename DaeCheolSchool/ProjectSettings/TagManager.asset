@@ -19,6 +19,26 @@ TagManager:
   - PlayerWillDie
   - BGMNone
   - EXPLOSION
+  - ZONE/Entrance
+  - ZONE/1FHall
+  - ZONE/ICT
+  - ZONE/TechandHouse
+  - ZONE/Stairs
+  - ZONE/Studio
+  - ZONE/Helproom
+  - ZONE/2FHall
+  - ZONE/Class
+  - ZONE/Toilet
+  - ZONE/MainOffice
+  - ZONE/TeacherRestroom
+  - ZONE/DreamClass
+  - ZONE/3FHall
+  - ZONE/EnglishClass
+  - ZONE/ScienceClass
+  - ZONE/Library
+  - ZONE/songandart
+  - ZONE/hospital
+  - ZONE/Weclass
   layers:
   - Default
   - TransparentFX

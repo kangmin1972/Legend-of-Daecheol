@@ -232,6 +232,13 @@ public class startscreen : MonoBehaviour
         }
     }
 
+    public void tourmode()
+    {
+        buttonclick.Play();
+        normalcanvas.SetActive(false);
+        mapselectcanvas.SetActive(true);
+    }
+
     public void map_school()
     {
         if (caninteract == true)
@@ -270,6 +277,7 @@ public class startscreen : MonoBehaviour
         {
             buttonclick.Play();
             normalcanvas.SetActive(true);
+            mapselectcanvas.SetActive(false);
             gamemodecanvas.SetActive(false);
         }
     }
