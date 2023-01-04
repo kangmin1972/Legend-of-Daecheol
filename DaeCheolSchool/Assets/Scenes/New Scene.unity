@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   second: 9
-  nextscene: WARNING
+  nextscene: start
 --- !u!1 &1519583588
 GameObject:
   m_ObjectHideFlags: 0
