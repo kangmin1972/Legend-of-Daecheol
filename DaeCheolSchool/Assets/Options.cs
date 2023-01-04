@@ -22,10 +22,14 @@ public class Options : MonoBehaviour
     public Toggle isambientocculusion;
     public Toggle ismotionblur;
     public Toggle isvsync;
+    public Toggle isfullscreen;
+
+    public GameObject titlecanvas;
 
     FullScreenMode fullscreenmode;
 
     public PostProcessVolume volume;
+    public PostProcessVolume volume2;
     Bloom bloom;
     DepthOfField dof;
     ColorGrading cg;
@@ -313,6 +317,28 @@ public class Options : MonoBehaviour
         }
     }
 
+    public void SetFullScreen(bool value)
+    {
+        Screen.fullScreen = value;
+    }
+
+    public void SetMotionBlur(bool value)
+    {
+        buttonclick.Play();
+        volume2.profile.TryGetSettings(out mb);
+        mb.active = value;
+
+        switch (value)
+        {
+            case true:
+                PlayerPrefs.SetInt("MotionBlurValue", 1);
+                break;
+            case false:
+                PlayerPrefs.SetInt("MotionBlurValue", 0);
+                break;
+        }
+    }
+
     public void SetVsync(bool value)
     {
         buttonclick.Play();
@@ -455,6 +481,27 @@ public class Options : MonoBehaviour
                     break;
             }
         }
+        if (PlayerPrefs.HasKey("MotionBlurValue"))
+        {
+            switch (PlayerPrefs.GetInt("MotionBlurValue"))
+            {
+                case 1:
+                    ismotionblur.isOn = true;
+                    break;
+                case 0:
+                    ismotionblur.isOn = false;
+                    break;
+            }
+        }
+        if (Screen.fullScreen == false)
+        {
+            leavepiece.isOn = false;
+
+        }
+        else
+        {
+            leavepiece.isOn = true;
+        }
     }
 
     void AudioSavings()
@@ -508,5 +555,12 @@ public class Options : MonoBehaviour
         general.SetActive(false);
         graphic.SetActive(false);
         audio1.SetActive(false);
+    }
+
+    public void Backtotitle()
+    {
+        buttonclick.Play();
+        opcanvas.SetActive(false);
+        titlecanvas.SetActive(true);
     }
 }

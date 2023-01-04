@@ -7,7 +7,7 @@ public class DoorOpen : MonoBehaviour
     public Animation dooropen;
     public AudioSource doorsfx;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {

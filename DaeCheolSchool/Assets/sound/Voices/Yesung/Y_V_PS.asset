@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8562df7624faf864592981f7d7433fbb, type: 3}
+  m_Name: Y_V_PS
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d4471c068e224154fb82fee52e879d38, type: 3}
+  subtitle: "\uCC38\uACE0\uB85C, \uC790\uC138\uD55C \uC124\uBA85\uC740 \uC81C\uAC00
+    \uD654\uBA74 \uC67C\uCABD\uC5D0 \uB744\uC6CC\uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."

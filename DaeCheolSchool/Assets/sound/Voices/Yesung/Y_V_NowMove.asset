@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Y_V_NowMove
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 5ea37a85cd63cf540ac7ee663a0b83cd, type: 3}
-  subtitle: "\uC790, \uADF8\uB7FC \uC6D0\uD558\uB294 \uACF3\uC73C\uB85C \uAC00\uC8FC\uC138\uC694.
-    \uC790\uC138\uD55C \uC124\uBA85\uC744 \uB4E4\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  subtitle: "\uC790, \uADF8\uB7FC \uC774\uC81C \uC6D0\uD558\uB294 \uACF3\uC73C\uB85C
+    \uAC00\uC8FC\uC138\uC694. \uC790\uC138\uD55C \uC124\uBA85\uC744 \uBCFC \uC218
+    \uC788\uC2B5\uB2C8\uB2E4."
